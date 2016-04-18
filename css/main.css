@@ -1,0 +1,320 @@
+html, body{
+	margin: 0;
+	color:#000;
+	position:absolute;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+nav {
+	width: 100%;
+	margin: auto;
+}
+
+.main-container {
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	display: inline-block;
+	overflow: hidden;
+}
+
+/* The image banner section*/
+.banner {
+	position: relative;
+	width: 100%;
+	min-height: 400px;
+	display: inline-block;
+}
+
+/* Style the image */
+.banner-image {
+	position: absolute;
+	background-image: url("../imgs/banner.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	-webkit-filter: brightness(60%);
+	filter: brightness(60%);
+	background-position: center; 
+}
+
+/* Style the "Don't have an account" form */
+.topright {
+	position: relative;
+	margin: 5% 2% 0 0;
+	display: inline;
+	font-size: 18px;
+	float:right;
+	color: #FFFFFF;
+	font-size: 32px;
+}
+
+.topright #user, #email {
+	border: none;
+	background: white;
+	box-shadow: none;
+	margin-bottom: 4px;
+	width: 100%;
+	font-size: 18px;
+	line-height: 32px;
+	height: 39px;
+	padding: 2px 7px;
+	box-sizing: border-box;
+}
+
+.topright input[type="text"], input[type="password"] {
+	vertical-align: middle;
+	color: #000;
+	display: inline-block;
+	border-radius: 2px;
+	font-family: "Helvetica Neue",Helvetica,"Nimbus Sans",Arial,sans-serif;
+	-webkit-appearance: none;
+	margin-right: 4px;
+}
+
+.button-green {
+	width: 100%;
+	font-size: 18px;
+	line-height: 32px;
+	height: 39px;
+	padding: 2px 7px;
+	box-sizing: border-box;
+	border-color: #4ea332;
+	border-top-color: #52ab34;
+	border-bottom-color: #49972e;
+	background-color: #60C43F;
+	border-radius: 3px;
+	display: inline-block;
+	border-style: solid;
+	border-width: 1px;
+	vertical-align: middle;
+	font-weight: normal;
+	font-family: Helvetica, Arial, sans-serif;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+/********************************/
+/***** NAVIGATION BAR STYLE *****/
+/********************************/
+
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	width:100%;
+}
+
+/* Float the list items side by side */
+ul.topnav li {
+	float: left;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+	display: inline-block;
+	color: #f2f2f2;
+	text-align:center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change Background color of links on hover */
+ul.topnav li a:hover {
+	text-decoration: underline;
+}
+
+/* Give the currently active navigation link a green color*/
+a.active{
+	background-color: #4CAF50;
+}
+
+#logo {
+	font-family: 'Brush Script MT', cursive;
+	font-size: 36px;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 100%;
+	display: block;
+	background-color: transparent;
+	padding:6px;
+}
+
+/* Style the sign in button in the navigation bar */
+ul.topnav li.button {
+	float:right;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	border-radius: 3px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 17px;
+	margin: 7px 5px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	display: inline-block;
+}
+ul.topnav #register {
+	float:right;
+}
+
+ul.topnav #register a:hover {
+	background-color: transparent;
+}
+
+ul.topnav li.button a {
+	padding: 5px;
+}
+
+ul.topnav li.button a:hover {
+	background-color: transparent;
+	height: auto;
+}
+
+ul.topnav li.button:hover {
+	box-shadow: 0 12px 2px 0 rgba(45,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	border: solid 1px;
+}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {
+	display:none;
+}
+
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Explore"). Show the list item that contains the link to open and close the topnv (li.icon) */
+@media screen and (max-width:680px) {
+	ul.topnav li:not(:first-child) {display: none;}
+	ul.topnav li.icon {
+		display: inline-block;
+		float: right;
+		background-color: transparent;
+	}
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user click on the icon. This class make the topnav look good on small screens */
+@media screen and (max-width:680px) {
+	ul.topnav.responsive {position: relative;}
+	ul.topnav.responsive li.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	ul.topnav.responsive li {
+		float: none;
+		display: inline;
+	}
+	ul.topnav.responsive li a {
+		display: block;
+		text-align: left;
+	}
+
+	/* Style the register button in the navigation bar */
+	ul.topnav li.button {
+		float:right;
+		background-color: #4CAF50; /* Green */
+		border: none;
+		border-radius: 10px;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: block;
+		font-size: 17px;
+		margin: 7px 5px;
+		cursor: pointer;
+		-webkit-transition-duration: 0.4s; /* Safari */
+		transition-duration: 0.4s;
+	}
+
+	ul.topnav li.button a {
+		padding: 5px;
+	}
+
+	ul.topnav li.button a:hover {
+		background-color: transparent;
+		height: auto;
+	}
+
+	ul.topnav li.button:hover {
+		box-shadow: 0 12px 2px 0 rgba(45,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		border: solid 1px;
+	}
+}
+
+@media screen and (max-width:455px) {
+	div.banner form.topright {
+		position: relative;
+		margin: 10% 5% 0 0;
+		display: inline;
+		font-size: 16px;
+		float:right;
+		color: #FFFFFF;
+		font-size: 24px;
+		float:right;
+		width:75%;
+	}
+
+	div.banner form.topright #user, #email {
+		border: none;
+		background: white;
+		box-shadow: none;
+		margin-bottom: 4px;
+		width: 100%;
+		font-size: 12px;
+		line-height: 15px;
+		height: 20px;
+		padding: 2px 7px;
+		box-sizing: border-box;
+		float: right;
+	}
+
+	div.banner form.topright input[type="text"], input[type="password"] {
+		vertical-align: middle;
+		color: #000;
+		display: inline-block;
+		border-radius: 2px;
+		font-family: "Helvetica Neue",Helvetica,"Nimbus Sans",Arial,sans-serif;
+		-webkit-appearance: none;
+		margin-right: 4px;
+		float: right;
+	}
+
+	div.banner form.topright .button-green {
+		width: 100%;
+		font-size: 12px;
+		line-height: 16px;
+		height: 24px;
+		padding: 2px 7px;
+		box-sizing: border-box;
+		border-color: #4ea332;
+		border-top-color: #52ab34;
+		border-bottom-color: #49972e;
+		background-color: #60C43F;
+		border-radius: 3px;
+		display: inline-block;
+		border-style: solid;
+		border-width: 1px;
+		vertical-align: middle;
+		font-weight: normal;
+		font-family: Helvetica, Arial, sans-serif;
+		text-align: center;
+		color: white;
+		cursor: pointer;
+		float: right;
+	}
+}
+
+.genre {
+	display: block;
+	clear: both;
+	position: absolute;
+}

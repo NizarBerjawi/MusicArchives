@@ -1,34 +1,28 @@
 html, body{
 	margin: 0;
-	color:#000;
-	position:absolute;
-	min-height: 100%;
-	min-width: 100%;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 100%;
-	background-color: #D8ECF2;
-}
-
-nav {
-	width: 100%;
-	margin: auto;
+	color: #50514F;
+	background-color: rgba(112,193,179, 0.1);
 }
 
 h1 {
 	font-size: 3em;
-    text-align: center;
-    margin: 5px;
+	text-align: center;
+	margin: 5px;
 }
 
-/* The image banner section*/
+/***** IMAGE BANNER AND SIGN-UP FORM *****/
+
+/* Image banner section */
 .banner {
+	display: block;
 	position: relative;
 	width: 100%;
 	min-height: 400px;
-	display: inline-block;
 }
 
-/* Style the image */
+/* The image */
 .banner-image {
 	position: absolute;
 	background-image: url("../imgs/banner.jpg");
@@ -40,20 +34,18 @@ h1 {
 	background-position: center; 
 }
 
-/* Style the "Don't have an account" form */
-.topright {
+/* Sign-up form */
+.top-right {
 	position: relative;
 	margin: 5% 2% 0 0;
-	display: inline;
-	font-size: 18px;
 	float:right;
-	color: #FFFFFF;
 	font-size: 32px;
+	color: #f2f2f2;
 }
 
-.topright #user, #email {
+/* Style the input field in the Sign-up form */
+.top-right #user, #email, .modal .sign-in {
 	border: none;
-	background: white;
 	box-shadow: none;
 	margin-bottom: 4px;
 	width: 100%;
@@ -64,7 +56,8 @@ h1 {
 	box-sizing: border-box;
 }
 
-.topright input[type="text"], input[type="password"] {
+/* Style the input field in the Sign-up form */
+.top-right input[type="text"], .modal .sign-in {
 	vertical-align: middle;
 	color: #000;
 	display: inline-block;
@@ -74,19 +67,17 @@ h1 {
 	margin-right: 4px;
 }
 
-.button-green {
+/* Style the red button in the sign-up form */
+.button-red {
 	width: 100%;
 	font-size: 18px;
 	line-height: 32px;
 	height: 39px;
 	padding: 2px 7px;
 	box-sizing: border-box;
-	border-color: #4ea332;
-	border-top-color: #52ab34;
-	border-bottom-color: #49972e;
-	background-color: #60C43F;
-	border-radius: 3px;
-	display: inline-block;
+	border-color: #247BA0;
+	background-color: #F25F5C;
+	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
 	vertical-align: middle;
@@ -97,9 +88,11 @@ h1 {
 	cursor: pointer;
 }
 
-/********************************/
-/***** NAVIGATION BAR STYLE *****/
-/********************************/
+/***** NAVIGATION BAR *****/
+nav {
+	width: 100%;
+	margin: auto;
+}
 
 /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
@@ -107,7 +100,7 @@ ul.topnav {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #50514F;
 	width:100%;
 }
 
@@ -134,14 +127,13 @@ ul.topnav li a:hover {
 
 /* Give the currently active navigation link a green color*/
 a.active{
-	background-color: #4CAF50;
+	background-color: #F25F5C;
 }
 
+/* Style the "Music Archives" log */
 #logo {
 	font-family: 'Brush Script MT', cursive;
 	font-size: 36px;
-	font-style: normal;
-	font-variant: normal;
 	line-height: 100%;
 	display: block;
 	background-color: transparent;
@@ -150,21 +142,21 @@ a.active{
 
 /* Style the sign in button in the navigation bar */
 ul.topnav li.button {
-	float:right;
-	background-color: #4CAF50; /* Green */
-	border: none;
-	border-radius: 3px;
-	color: white;
-	text-align: center;
-	text-decoration: none;
 	display: inline-block;
-	font-size: 17px;
+	float:right;
+	border: none;
 	margin: 7px 5px;
 	cursor: pointer;
-	-webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
-	display: inline-block;
 }
+
+ul.topnav li.button a {
+	padding: 5px;
+	border-radius: 4px;
+	background-color: #F25F5C;
+	border-color: #247BA0;
+	border: solid 1px;
+}
+
 ul.topnav #register {
 	float:right;
 }
@@ -173,26 +165,13 @@ ul.topnav #register a:hover {
 	background-color: transparent;
 }
 
-ul.topnav li.button a {
-	padding: 5px;
-}
-
-ul.topnav li.button a:hover {
-	background-color: transparent;
-	height: auto;
-}
-
-ul.topnav li.button:hover {
-	box-shadow: 0 12px 2px 0 rgba(45,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-	border: solid 1px;
-}
-
-/* Hide the list item that contains the link that should open and close the topnav on small screens */
+/* Hide the 'Hamburger' that appears when screen is minimized */
 ul.topnav li.icon {
 	display:none;
 }
 
-/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Explore"). Show the list item that contains the link to open and close the topnv (li.icon) */
+/* When the screen is less than 680 pixels wide, hide all list items, except for the logo. */
+/* Show the list item ('Hamburger') that opens and closes the navigation */
 @media screen and (max-width:680px) {
 	ul.topnav li:not(:first-child) {display: none;}
 	ul.topnav li.icon {
@@ -202,7 +181,7 @@ ul.topnav li.icon {
 	}
 }
 
-/* The "responsive" class is added to the topnav with JavaScript when the user click on the icon. This class make the topnav look good on small screens */
+/* The "responsive" class is added to the topnav with JavaScript when the user click on the icon. */
 @media screen and (max-width:680px) {
 	ul.topnav.responsive {position: relative;}
 	ul.topnav.responsive li.icon {
@@ -219,124 +198,27 @@ ul.topnav li.icon {
 		text-align: left;
 	}
 
-	/* Style the register button in the navigation bar */
+	/* Style the sign-in button in the small-screen navigation bar */
 	ul.topnav li.button {
 		float:right;
-		background-color: #4CAF50; /* Green */
-		border: none;
-		border-radius: 10px;
-		color: white;
-		text-align: center;
-		text-decoration: none;
 		display: block;
-		font-size: 17px;
-		margin: 7px 5px;
-		cursor: pointer;
-		-webkit-transition-duration: 0.4s; /* Safari */
-		transition-duration: 0.4s;
-	}
-
-	ul.topnav li.button a {
-		padding: 5px;
-	}
-
-	ul.topnav li.button a:hover {
-		background-color: transparent;
-		height: auto;
-	}
-
-	ul.topnav li.button:hover {
-		box-shadow: 0 12px 2px 0 rgba(45,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-		border: solid 1px;
 	}
 }
 
-@media screen and (max-width:455px) {
-	div.banner form.topright {
-		position: relative;
-		margin: 10% 5% 0 0;
-		display: inline;
-		font-size: 16px;
-		float:right;
-		color: #FFFFFF;
-		font-size: 24px;
-		float:right;
-		width:75%;
-	}
-
-	div.banner form.topright #user, #email {
-		border: none;
-		background: white;
-		box-shadow: none;
-		margin-bottom: 4px;
-		width: 100%;
-		font-size: 12px;
-		line-height: 15px;
-		height: 20px;
-		padding: 2px 7px;
-		box-sizing: border-box;
-		float: right;
-	}
-
-	div.banner form.topright input[type="text"], input[type="password"] {
-		vertical-align: middle;
-		color: #000;
-		display: inline-block;
-		border-radius: 2px;
-		font-family: "Helvetica Neue",Helvetica,"Nimbus Sans",Arial,sans-serif;
-		-webkit-appearance: none;
-		margin-right: 4px;
-		float: right;
-	}
-
-	div.banner form.topright .button-green {
-		width: 100%;
-		font-size: 12px;
-		line-height: 16px;
-		height: 24px;
-		padding: 2px 7px;
-		box-sizing: border-box;
-		border-color: #4ea332;
-		border-top-color: #52ab34;
-		border-bottom-color: #49972e;
-		background-color: #60C43F;
-		border-radius: 3px;
-		display: inline-block;
-		border-style: solid;
-		border-width: 1px;
-		vertical-align: middle;
-		font-weight: normal;
-		font-family: Helvetica, Arial, sans-serif;
-		text-align: center;
-		color: white;
-		cursor: pointer;
-		float: right;
-	}
-}
+/***** MAIN SECTION STYLE *****/
 
 main {
 	min-height: 100%;
 	min-width: 100%;
-	position: absolute;
 	display: inline-block;
 	overflow: hidden;
-
-}
-main .container {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	display: inline-block;
-	margin: 0 auto;
-	padding-top: 10px;
-	clear: both;
-	padding: 28px;
 }
 
 main .container .search {
 	margin: auto;
-    width: 60%;
-    padding: 10px;
+	width: 60%;
+	padding: 10px;
+	margin-top:40px;
 }
 
 main .container .search input[type=text] {
@@ -361,3 +243,148 @@ main .container .search input[type=text]:focus {
 	width: 100%;
 }
 
+div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groove;}
+#menu ul {list-style-type: none; padding: 0; margin: 0; text-align: center;}
+#menu li {display: inline-block; }
+#menu a {
+	display: block;
+	color: #f2f2f2;
+	width: 15vw;
+	height: 15vw;
+	border-radius: 50%;
+	border: 1px #a2a2a2 solid;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 3.5vw;
+	text-align: center;
+	line-height: 15vw;
+	transition: width 0.7s ease-in-out;
+	background:#247BA0;
+}
+
+#menu a:hover {
+	border: 3px #50514F solid;
+}
+
+/***** FOOTER SECTION STYLE *****/
+
+.footer-basic-centered{
+	background-color: #50514F;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	font: normal 18px sans-serif;
+	padding: 45px;
+	margin-top: 50px;
+	color:  #8f9296;
+}
+
+.footer-basic-centered .footer-company-logo{
+	font-family: 'Brush Script MT', cursive;
+	font-size: 46px;
+	font-style: normal;
+	font-variant: normal;
+	color: #f2f2f2;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-company-copyright{
+	font-size: 14px;
+	margin: 0;
+}
+
+/* Make the footer Responsive */
+@media (max-width: 600px) {
+
+	.footer-basic-centered{
+		padding: 35px;
+	}
+
+	.footer-basic-centered .footer-company-logo{
+		font-size: 18px;
+	}
+
+	.footer-basic-centered .footer-copyright{
+		font-size: 12px;
+	}
+}
+
+/* Sign in Modal window */
+.modal {
+	background-color: #dbd9d9;
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 200px;
+	margin-left: -200px;
+	margin-top: -150px;
+	padding: 50px;
+	border-radius: 5px;
+	z-index: 10;
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
+}
+
+.close-modal {
+	color:  #000;
+	text-decoration: none;
+	float: right;
+	position: absolute;
+	top: 10px;
+	right: 20px
+}
+
+/* Tab Menu in the administrator's page */
+#tab-menu{
+	float: right;
+	position: relative;
+	left: -50%;
+	text-align:left;
+}
+#tab-menu ul{
+	position: relative;
+	left: 50%;
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+#tab-menu li {
+	float:left;
+	position: relative;
+	margin: 0 2px 0 0;
+	border-bottom: 0;
+	width:106px;
+	text-align:center;
+}
+#tab-menu li a {
+	text-decoration:none;
+	display:block;
+	padding: 8px 15px;
+	color: #ffffff;
+	font: 15px 'Trebuchet MS', Trebuchet, sans-serif;
+	border-radius: 10px 10px 0 0;
+	background-color: #4D5960;
+}
+#tab-menu li a:hover {
+	background-color: #DBE4EA;
+	color: #0b5394;
+}
+#txt_cont{
+	position:relative;
+	width: 536px;
+	font: 13px 'Trebuchet MS', Trebuchet, sans-serif;
+	line-height:20px;
+	border:1px solid #ccc;
+	border-top: 0;
+	margin-left:-270px;
+	left:50%;
+}
+.txt_tab{
+	padding:8px;
+}
+#tab-menu ul li a.hover_tab{
+	background-color:#dbe4ea;
+	color:#0b5394;
+}

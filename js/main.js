@@ -13,3 +13,26 @@ function setActive() {
 	}
 }
 window.onload = setActive;
+
+/* This part uses JQuery to display a modal window when the Sign-in Button is clicked */
+var modal = $('.modal');
+$('.show-modal').click(function() {
+	modal.fadeIn();
+});
+
+$('.close-modal').click(function() {
+	modal.fadeOut();
+});
+
+/* add interactivity to the tab menu in the administrator's page */
+$(document).ready(function(){
+	$('div#txt_cont div:gt(0)').css('display', 'none');
+	$('#tab-menu ul li a').click(function(event){
+		event.preventDefault();
+		var id_tab = $(this).attr('href');
+		$('#tab-menu ul li a').removeClass('hover_tab');
+		$(this).addClass('hover_tab');
+		$('div.txt_tab:visible').hide();
+		$(id_tab).show('slide');
+	});
+});

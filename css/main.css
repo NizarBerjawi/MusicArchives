@@ -7,7 +7,7 @@ html, body{
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 4vmax;
 	text-align: center;
 	margin: 5px;
 }
@@ -334,6 +334,65 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	position: absolute;
 	top: 10px;
 	right: 20px
+}
+
+/**** ADVANCED SEARCH IN EXPLORE PAGE ****/
+.container .advanced-search {
+	margin-top: 20px;
+	position: relative;
+	display: block;
+}
+
+.advanced-search .filters {
+	display: inline-block;
+	width:100%;
+}
+
+.advanced-search .filters table {
+	margin:auto;
+	border: dotted #7D0E0E 1px;
+	border-collapse: collapse;
+}
+
+.advanced-search .filters .button-red {
+	width: 100px;
+	margin:auto;
+}
+
+.advanced-search .filters td {
+	text-align: center;
+}
+
+/***** MAKE ADVANCED SEARCH IN THE EXPLORE PAGE RESPONIVE *****/
+
+@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	.advanced-search .filters table, thead, tbody, th, td, tr { 
+		display: block;
+		margin: auto;
+	}
+	
+	.advanced-search .filters tr { border: 1px solid #ccc; text-align: center;}
+	
+	.advanced-search .filters td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		width:33%; 
+	}
+
+	.advanced-search .filters  td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
 }
 
 /* Tab Menu in the administrator's page */

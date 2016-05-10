@@ -8,7 +8,7 @@
 
 	<title>Music Archives</title>
 	<!-- My Styles -->
-	<link href="css/main.css" rel="stylesheet" type="css/text">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 
 </head>
@@ -26,7 +26,6 @@
 				<li><a href="about-us.html">About Us</a></li>
 				<li><a href="contact-us.html">Contact Us</a></li>
 				<li class="button"><a class="show-modal open-modal">Sign in</a></li>
-				<li id="register"><a href="#none">Register</a></li>
 				<li class="icon">
 					<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
 				</li>
@@ -38,47 +37,23 @@
 		<div class="modal">
 			<a class="close-modal" href="#">X</a>
 			<h2>Enter Email and password to login</h2>
-			<form action="admin.html">
+			<form action="#">
 				<input class="sign-in" type="text" name="email" placeholder="Email e.g., spaceman.spiff@gross.club">
 				<input class="sign-in" type="password" name="password" placeholder="Password e.g., ********">
-				<input class="button-green" type="submit" value="Submit">
+				<input class="button-red" type="submit" value="Submit">
 			</form> 
 		</div>
 		<!-- /Sign-in Modal -->
-
-		<!-- Banner and Sign Up Form -->
-		<div class="banner">
-			<div class="banner-image"></div>
-			<form class="topright">
-				<fieldset>
-					<legend>Don't have an account?</legend>
-					<input type="text" id="user" name="username" placeholder="Choose a username">
-					<input type="text" id="email" name="email" placeholder="Enter your email address">
-					<input class="button-green" type="submit" value="Submit">
-				</fieldset>
-			</form>
-		</div>
-		<!-- /Banner and Sign Up Form -->
 	</header>
 
 	<main>
 		<div class="container">
-
 			<!-- Search bar -->
 			<section class="search">
-				<h1>Under Construction</h1>
+				<h1> Under Construction</h1>
 			</section>
 			<!-- /Search Bar -->
 
-			<div id="menu">
-				<ul>
-					<li><a href="explore.html">Explore</a></li>
-					<li><a href="analytics.html">Analytics</a></li>
-					<li><a href="forum.html">Blog</a></li>
-					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="contact-us.html">Contact</a></li>
-				</ul> 
-			</div>
 		</div>
 	</main>
 

@@ -7,7 +7,7 @@ html, body{
 }
 
 h1 {
-	font-size: 4vmax;
+	font-size: 3vmax;
 	text-align: center;
 	margin: 5px;
 }
@@ -44,7 +44,7 @@ h1 {
 }
 
 /* Style the input field in the Sign-up form */
-.top-right #user, #email, .modal .sign-in {
+.top-right #user, #email, .modal .sign-in, .registration-form .sign-in {
 	border: none;
 	box-shadow: none;
 	margin-bottom: 4px;
@@ -110,7 +110,7 @@ ul.topnav li {
 }
 
 /* Style the links inside the list items */
-ul.topnav li a {
+ul.topnav li a, .category-button .visualization-button {
 	display: inline-block;
 	color: #f2f2f2;
 	text-align:center;
@@ -141,7 +141,7 @@ a.active{
 }
 
 /* Style the sign in button in the navigation bar */
-ul.topnav li.button {
+ul.topnav li.button, .category-button .visualization-button {
 	display: inline-block;
 	float:right;
 	border: none;
@@ -149,7 +149,7 @@ ul.topnav li.button {
 	cursor: pointer;
 }
 
-ul.topnav li.button a {
+ul.topnav li.button a, .category-button .visualization-button  {
 	padding: 5px;
 	border-radius: 4px;
 	background-color: #F25F5C;
@@ -208,15 +208,20 @@ ul.topnav li.icon {
 /***** MAIN SECTION STYLE *****/
 
 main {
-	min-height: 100%;
 	min-width: 100%;
 	display: inline-block;
 	overflow: hidden;
 }
 
+.container {
+	margin: auto;
+	margin-top: 20px; 
+	max-width: 1050px;
+}
+
 main .container .search {
 	margin: auto;
-	width: 60%;
+	width: 80%;
 	padding: 10px;
 	margin-top:40px;
 }
@@ -249,21 +254,22 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 #menu a {
 	display: block;
 	color: #f2f2f2;
-	width: 15vw;
-	height: 15vw;
+	width: 13vw;
+	height: 13vw;
 	border-radius: 50%;
 	border: 1px #a2a2a2 solid;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-size: 3.5vw;
+	font-size: 3vw;
 	text-align: center;
-	line-height: 15vw;
+	line-height: 13vw;
 	transition: width 0.7s ease-in-out;
 	background:#247BA0;
 }
 
 #menu a:hover {
-	border: 3px #50514F solid;
+	border: 1px #50514F solid;
+	text-shadow: 0 0 7px #FF0000;
 }
 
 /***** FOOTER SECTION STYLE *****/
@@ -350,8 +356,9 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 
 .advanced-search .filters table {
 	margin:auto;
-	border: dotted #7D0E0E 1px;
+	border: dotted black 1px;
 	border-collapse: collapse;
+	width: 80%;
 }
 
 .advanced-search .filters .button-red {
@@ -360,6 +367,14 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 }
 
 .advanced-search .filters td {
+	text-align: center;
+}
+
+.advanced-search select {
+	font-size: 16px;
+	font-family: 'Fjalla One', sans-serif;
+	color: #50514F;
+	width: 90%;
 	text-align: center;
 }
 
@@ -380,7 +395,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
-		width:33%; 
+		width:50%; 
 	}
 
 	.advanced-search .filters  td:before { 
@@ -393,57 +408,127 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
+	.advanced-search select {
+		font-size: 12px;
+		transition: 0.5s;
+		font-family: 'Fjalla One', sans-serif;
+		color: #50514F;
+		text-align: center;
+		width: 100%;
+	}
 }
 
-/* Tab Menu in the administrator's page */
-#tab-menu{
-	float: right;
-	position: relative;
-	left: -50%;
-	text-align:left;
+/***** Analytics list *****/
+.category-box {
+	display: block;
+	min-width: 200px;
+	height: 150px;
+	margin: 20px;
+	border: 2px grey groove;
+	border-radius: 6px;
+	background-color: #F7F7F7;
+	transition: 0.4s;
 }
-#tab-menu ul{
-	position: relative;
-	left: 50%;
-	list-style:none;
-	padding:0;
-	margin:0;
+
+.category-box:hover {
+	background-color: lightgrey;
+	cursor: default;
+	box-shadow:2px 2px 2px 2px rgba(205,92,92,0.4);
 }
-#tab-menu li {
+
+.category-icon {
+	display: inline-block;
+	border-right: 1px grey groove;
+	min-width: 20%;
+	height: 150px;
+	float: left;
+}
+
+.category-image {
+	background-image: url("../imgs/sample-chart.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	margin: auto;
+	width: 100%;
+	height: 150px;
+}
+
+.category-description {
+	display: inline-block;
+	border-right: 1px grey groove;
+	width: 70%;
+	height: 150px;
 	float:left;
-	position: relative;
-	margin: 0 2px 0 0;
-	border-bottom: 0;
-	width:106px;
-	text-align:center;
+	font-size: 2.2vmin;
 }
-#tab-menu li a {
-	text-decoration:none;
-	display:block;
-	padding: 8px 15px;
-	color: #ffffff;
-	font: 15px 'Trebuchet MS', Trebuchet, sans-serif;
-	border-radius: 10px 10px 0 0;
-	background-color: #4D5960;
-}
-#tab-menu li a:hover {
-	background-color: #DBE4EA;
-	color: #0b5394;
-}
-#txt_cont{
+
+.category-button {
+	display: inline-block;
+	min-width: 9%;
+	height: 150px;
+	float:right;
 	position:relative;
-	width: 536px;
-	font: 13px 'Trebuchet MS', Trebuchet, sans-serif;
-	line-height:20px;
-	border:1px solid #ccc;
-	border-top: 0;
-	margin-left:-270px;
-	left:50%;
 }
-.txt_tab{
-	padding:8px;
+
+.category-button .visualization-button {
+	font-size: 2.3vmin;
+	margin: auto;
+	position: absolute;
+	display: inline;
 }
-#tab-menu ul li a.hover_tab{
-	background-color:#dbe4ea;
-	color:#0b5394;
+.category-button span { 
+	display:inline-block;
+	vertical-align:middle;
+}
+
+@media screen and (max-width:680px) {
+	.category-box, .category-icon, .category-description, .category-button {
+		height: 100px;
+	}
+}
+
+.registration-form #center-form{
+	display: block;
+	border: dotted black 1px;
+	width: 80%;
+	margin:auto;
+}
+
+#center-form table{
+	margin:auto;
+	font-size: 4vmin;
+	width: 75%;
+}
+
+#center-form table tr:last-child{
+	text-align: center;
+}
+
+#center-form table button[name="btn-signup"] {
+	width: 50%;
+	font-size:4vmin;
+}
+
+#center-form form table td{
+	padding: 10px;
+}
+
+.registration-form #error-message {
+	font-size:3vmin;
+	width: 50%;
+	background-color: #FFBABA;
+	color: #D8000C;
+	text-align: center;
+	border-radius: 5px;
+	margin:auto;
+}
+
+.registration-form #success-message {
+	font-size:3vmin;
+	width: 50%;
+	background-color: #DFF2BF;
+	color: #4F8A10;
+	text-align: center;
+	border-radius: 5px;
+	margin:auto;
 }

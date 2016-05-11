@@ -36,6 +36,8 @@ var formHandler = function() {
 			var messages = jQuery.parseJSON(data);
 			var $errorMessages = $("#error-message").hide(); // Hide the errors div so that fade in works
 			var $successMessages = $("#success-message").hide(); // Hide the success div so that fade in works
+			// Display the error or success messages returned by PHP
+			// Note: the error messages will only be displayed if JavaScript does not catch them first
 			jQuery.each(messages, function(key, val) {
 				if (key === "success") {
 					$successMessages.append(val);

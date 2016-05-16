@@ -12,9 +12,8 @@ include ('templates/header.html');
 	<div id="center-form">
 		<h1>Please enter your details below:</h1>
 		
-		<div id="error-message"></div>
-		<div id="success-message"></div>
-
+		<div class="error-message"></div>
+		<div class="success-message"></div>
 
 		<form id="registration" method="post" action="register.php">
 			<table>

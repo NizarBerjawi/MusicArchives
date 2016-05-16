@@ -1,22 +1,81 @@
 <?php
 if (!isset($page_title)) {
-	$page_title = "About Music Archives";
+    $page_title = "About Music Archives";
 }
 include ('templates/header.html');
 
 ?>
+<!-- Team member introduction -->
+<div class="blabla">
+    
+    <h1>About Us</h1>
+    <div class="img">
+        <a target="_blank" href="Nizar.jpg">
+            <img src="imgs/Nizar.jpg" alt="Lead Programmer Nizar">
+        </a>
+        <div class="desc">
+            Lead Programmer <br>
+            <p><h2>Nizar</h2></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+                urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+                vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+                quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+                pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+                malesuada sapien. 
+            </p>
+        </div>
+    </div>
 
-<!-- About Us content goes here -->
+    <div class="img">
+        <a target="_blank" href="Linda.jpg">
+            <img src="imgs/Linda.jpg" alt="Programmer Linda">
+        </a>
+        <div class="desc">Programmer<br>
+            <p><h2>Linda</h2></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+                urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+                vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+                quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+                pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+                malesuada sapien. 
+            </p>
+        </div>
+    </div>
 
-<section>
-	
-	
-</section>
+    <div class="img">
+      <a target="_blank" href="Alex.jpg">
+          <img src="imgs/Alex.jpg" alt="Programmer Alex">
+      </a>
+      <div class="desc">Programmer<br>
+          <p><h2>Alex</h2></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+            urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+            vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+            quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+            pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+            malesuada sapien. 
+        </p>
+    </div>
+</div>
+</div>
+<!-- / Team member introduction -->
 
-<!-- End of About Us content -->
+<!-- End of Page Specific Content -->
 
 
+</div>
+</main>
 
-<?php
-include ('templates/footer.html');
-?>
+<footer class="footer-basic-centered">
+    <p class="footer-company-logo">Music Archives</p>
+    <p class="footer-copyright">Copyright &copy; 2015</p>
+</footer>
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<!-- My JavaScript -->
+<script src="js/main.js"></script>
+<script src="js/registration-form-validation.js"></script>
+<script src="js/login.js"></script>
+<!--    <script src="js/logout.js"></script>
+--></body>

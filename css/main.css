@@ -513,7 +513,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	padding: 10px;
 }
 
-.registration-form #error-message {
+.registration-form .error-message {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #FFBABA;
@@ -523,7 +523,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	margin:auto;
 }
 
-.registration-form #success-message {
+.registration-form .success-message {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #DFF2BF;
@@ -531,4 +531,42 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	text-align: center;
 	border-radius: 5px;
 	margin:auto;
+}
+
+#login-error {
+	font-size:1.8vmin;
+	width: 70%;
+	background-color: #FFBABA;
+	color: #D8000C;
+	text-align: center;
+	border-radius: 5px;
+	margin:auto;
+	margin-bottom: 10px;
+}
+
+/*******About Us Page********/
+
+div.img {
+	
+	float: left;
+	width: 33%;
+	
+}	
+
+div.img:hover {
+	border: 1px solid #333;
+	
+}
+
+div.img img {
+	width: 90%;
+	margin-left:5%;
+	margin-right:5%;
+	height: auto;
+	border-radius: 50%;
+}
+
+div.desc {
+	padding: 15px;
+	text-align: center;
 }

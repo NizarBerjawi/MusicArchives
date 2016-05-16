@@ -2,7 +2,7 @@
 var nameRegex = /^[a-zA-Z][a-zA-Z\-'\s]{0,43}$/;
 var usernameRegex = /^[a-z][a-z0-9_\.]{0,24}$/i;
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var password = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+var passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
 // A function to handle form submission and validation
 var formHandler = function() {
@@ -14,15 +14,17 @@ var formHandler = function() {
 	var pass1 = $form.find("input[name='password']").val();
 	var pass2 = $form.find("input[name='password-confirm']").val();
 	var url = $form.attr("action");
-
-	$("#error-message").empty();	// Clear any previous error messages
 	
+	$(".error-message").empty();	// Clear any previous error messages
+	$(".success-message").empty();	// Clear any previous success messages
+
 	// Validate all the input in the form
 	var fnIsValid = inputValidation(fname, "Enter a valid first name!", nameRegex);
 	var lnIsValid = inputValidation(lname, "Enter a valid last name!", nameRegex);
 	var usrIsValid = inputValidation(username, "Enter a valid username!", usernameRegex);
 	var emailIsValid = inputValidation(email, "Enter a valid email!", emailRegex);
-	var passIsValid = passwordValidation(pass1, pass2, "Password is not valid!", "Passwords don't match!", password);
+	var passIsValid = passwordValidation(pass1, pass2, "Password is not valid!", "Passwords don't match!", passwordRegex);
+
 
 	// Check if all the input is valid
 	if(fnIsValid && lnIsValid && usrIsValid && emailIsValid && passIsValid) {
@@ -31,13 +33,10 @@ var formHandler = function() {
 		var posting = $.post(url, {fn: fname, ln: lname, e: email, u: username, p1: pass1, p2: pass2});
 
 		// The response of the php file consists of validation results similar to those in this file
-		posting.done(function(data) {	
-			console.log(data);
+		posting.done(function(data) {
 			var messages = jQuery.parseJSON(data);
-			var $errorMessages = $("#error-message").hide(); // Hide the errors div so that fade in works
-			var $successMessages = $("#success-message").hide(); // Hide the success div so that fade in works
-			// Display the error or success messages returned by PHP
-			// Note: the error messages will only be displayed if JavaScript does not catch them first
+			var $errorMessages = $(".error-message").hide(); // Hide the errors div so that fade in works
+			var $successMessages = $(".success-message").hide(); // Hide the success div so that fade in works
 			jQuery.each(messages, function(key, val) {
 				if (key === "success") {
 					$successMessages.append(val);
@@ -52,11 +51,12 @@ var formHandler = function() {
 }
 
 // A function to validate the user's input other than the password
-var inputValidation = function(name, message, regex) {
-	var $errorMessage = $("#error-message");
+var inputValidation = function(input, message, regex) {
+	var $errorMessage = $(".error-message");
+
 	// Check if input is empty or does not match regex
-	if (!name || !regex.test(name)) {
-		var $errorMessage = $("#error-message").hide();
+	if (!input || !regex.test(input)) {
+		var $errorMessage = $(".error-message").hide();
 		var $errorList = $("<li>").text(message);
 		$errorMessage.append($errorList);
 		$errorMessage.fadeIn();
@@ -72,7 +72,7 @@ var passwordValidation = function(pass1, pass2, msg1, msg2, regex) {
 	if(isValid && (pass1 === pass2)) {
 		return true;
 	} else if (isValid && (pass1 !== pass2)) {
-		var $errorMessage = $("#error-message").hide();
+		var $errorMessage = $(".error-message").hide();
 		var $errorList = $("<li>").text(msg2);
 		$errorMessage.append($errorList);
 		$errorMessage.fadeIn();

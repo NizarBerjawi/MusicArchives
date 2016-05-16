@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -25,8 +29,18 @@
 				<li><a href="forum.php">Blog</a></li>
 				<li><a href="about-us.php">About Us</a></li>
 				<li><a href="contact-us.php">Contact Us</a></li>
+				<?php
+				if(isset($_SESSION['email']) && isset($_SESSION['password'])) {
+				?>
+				<li class="button"><a id="logout-button" onclick="window.location.href='logout.php'">Logout</a></li>
+				<?php
+				} else {
+				?>
 				<li class="button"><a class="show-modal open-modal">Sign in</a></li>
 				<li id="register"><a href="registration-form.php">Register</a></li>
+				<?php
+				}
+				?>
 				<li class="icon">
 					<a href="#">&#9776;</a>
 				</li>
@@ -38,10 +52,11 @@
 		<div class="modal">
 			<a class="close-modal" href="#">X</a>
 			<h2>Enter Email and password to login</h2>
-			<form action="">
+			<div id="login-error"></div>
+			<form id="login-form" action="login.php" method="post">
 				<input class="sign-in" type="text" name="email" placeholder="Email e.g., spaceman.spiff@gross.club">
 				<input class="sign-in" type="password" name="password" placeholder="Password e.g., ********">
-				<input class="button-red" type="submit" value="Submit">
+				<button class="button-red" type="submit" name="btn-login">Login</button>
 			</form> 
 		</div>
 		<!-- /Sign-in Modal -->

@@ -6,8 +6,7 @@ include ('templates/header.html');
 
 ?>
 <!-- Team member introduction -->
-<div class="blabla">
-    
+<div>    
     <h1>About Us</h1>
     <div class="img">
         <a target="_blank" href="Nizar.jpg">

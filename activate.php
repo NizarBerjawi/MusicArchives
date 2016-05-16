@@ -25,7 +25,9 @@ if (isset($_GET['x'], $_GET['y']) && filter_var($_GET['x'], FILTER_VALIDATE_EMAI
     mysqli_close($dbc);
     } else { // Redirect
     	// Site URL (base for all redirections)
-      define ('BASE_URL', 'http://localhost/MusicArchives/');
+      define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net/');
+      // For local Testing purposes:
+      //define ('BASE_URL', 'http://localhost/MusicArchives/');
       
         $url = BASE_URL . 'index.php'; // Define the URL.
         ob_end_clean(); // Delete the buffer

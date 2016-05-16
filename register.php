@@ -87,8 +87,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				/* This section corresponds to sending an activation email. UQ zones don't allow sending emails */
 
+
 /*				// Site URL (base for all redirections)
-				define ('BASE_URL', 'http://localhost/MusicArchives/');
+		      	define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net/');
+
+				// For local testing purposes only:
+				//define ('BASE_URL', 'http://localhost/MusicArchives/');
 
 				// Send an email.
 				$body = "Thank you for registering at Music Archives. To activate your account, please click on this link:\n\n";

@@ -6,55 +6,70 @@ include ('templates/header.html');
 
 ?>
 <!-- Team member introduction -->
-<div>    
-    <h1>About Us</h1>
-    <div class="img">
-        <a target="_blank" href="Nizar.jpg">
-            <img src="imgs/Nizar.jpg" alt="Lead Programmer Nizar">
-        </a>
-        <div class="desc">
-            Lead Programmer <br>
-            <p><h2>Nizar</h2></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
-                urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
-                vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
-                quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
-                pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
-                malesuada sapien. 
-            </p>
-        </div>
-    </div>
+<h1>About Music Archives</h1>
 
-    <div class="img">
-        <a target="_blank" href="Linda.jpg">
-            <img src="imgs/Linda.jpg" alt="Programmer Linda">
-        </a>
-        <div class="desc">Programmer<br>
-            <p><h2>Linda</h2></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
-                urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
-                vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
-                quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
-                pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
-                malesuada sapien. 
-            </p>
-        </div>
-    </div>
+<p class="musicArchieve">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+    urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+    vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+    quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+    pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+    malesuada sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+    urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+    vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+    quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+    pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+    malesuada.cursus metus. Nam urna ipsum,vestibulum quis nibh at, lobortis iaculis dui,
+    quis nibh at, lobortis iaculis dui.
+</p>
 
-    <div class="img">
-      <a target="_blank" href="Alex.jpg">
-          <img src="imgs/Alex.jpg" alt="Programmer Alex">
-      </a>
-      <div class="desc">Programmer<br>
-          <p><h2>Alex</h2></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+<div class="img1">
+    <img src="imgs/bgl.png" alt="Music Note"></img>
+</div>
+<div class="img1">
+    <img src="imgs/bgr.png" alt="Music Note"></img>
+</div>
+
+<div class="img">
+    <img src="imgs/Nizar.jpg" alt="Lead Programmer Nizar">
+    <div class="desc">
+        Lead Programmer <br>
+        <p><h2>Nizar</h2></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
             urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
             vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
             quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
             pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
-            malesuada sapien. 
+            malesuada. 
         </p>
     </div>
+</div>
+
+<div class="img">
+    <img src="imgs/Linda.jpg" alt="Programmer Linda">
+    <div class="desc">Programmer<br>
+        <p><h2>Linda</h2></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+            urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+            vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+            quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+            pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+            malesuada. 
+        </p>
+    </div>
+</div>
+
+<div class="img">
+  <img src="imgs/Alex.jpg" alt="Programmer Alex">
+  <div class="desc">Programmer<br>
+      <p><h2>Alex</h2></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a 
+        urna tempus, varius libero vel, cursus metus. Nam urna ipsum, 
+        vestibulum quis nibh at, lobortis iaculis dui. Mauris ultricies maximus 
+        quam, non mollis felis dignissim quis. Vestibulum lectus ante, 
+        pellentesque nec luctus vel, bibendum sit amet velit. Sed quis 
+        malesuada. 
+    </p>
+</div>
 </div>
 </div>
 <!-- / Team member introduction -->

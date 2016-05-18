@@ -92,15 +92,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		      	//define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net/');
 				
 				// For use on Azure only
-				define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
-
+/*				define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+*/
 				// For local testing purposes only:
 				//define ('BASE_URL', 'http://localhost/MusicArchives/');
 
 				// Send an email.
-				$body = "Thank you for registering at Music Archives. To activate your account, please click on this link:\n\n";
+/*				$body = "Thank you for registering at Music Archives. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
-				mail($trimmed['e'], 'Registration Confirmation', $body, 'From: admin@music-archives.com');
+				mail($trimmed['e'], 'Registration Confirmation', $body, 'From: admin@music-archives.com');*/
 
 
 

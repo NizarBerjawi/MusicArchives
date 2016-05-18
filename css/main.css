@@ -44,7 +44,7 @@ h1 {
 }
 
 /* Style the input field in the Sign-up form */
-.top-right #user, #email, .modal .sign-in, .registration-form .sign-in {
+.top-right #user, #email, .modal .sign-in, .registration-form .sign-in, #feedback .sign-in {
 	border: none;
 	box-shadow: none;
 	margin-bottom: 4px;
@@ -546,22 +546,43 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 
 /*******About Us Page********/
 
+
+/*Music Archieve introduction*/
+
+.img1 {
+	float: left;
+	width: 38%;
+	margin-left: 15px;
+}
+
+.img1 img {
+	width: 120%;
+	margin-left: 15%;
+	margin-right: 0px;
+	height: auto;
+}
+
+
+/*text style*/
+
+
+/*Team member introductions********/
+
 div.img {
-	
 	float: left;
 	width: 33%;
-	
-}	
+}
 
 div.img:hover {
+	margin-top: 5px;
+	border-radius: 10px;
 	border: 1px solid #333;
-	
 }
 
 div.img img {
 	width: 90%;
-	margin-left:5%;
-	margin-right:5%;
+	margin-left: 5%;
+	margin-right: 5%;
 	height: auto;
 	border-radius: 50%;
 }
@@ -569,4 +590,77 @@ div.img img {
 div.desc {
 	padding: 15px;
 	text-align: center;
+}
+
+/*Feedback and Find Us in contact-us page by Alex*/
+.container-contact-us { 
+	width: 80%;
+	margin:auto;
+	overflow: auto;
+}
+
+#comments {
+	margin:auto;
+}
+#comments table {
+	width:100%;
+	table-layout: fixed;
+}
+
+#comments table .text-comment {
+	resize: vertical; 
+	resize: none;
+	width: 100%;
+	height: 250px;
+	padding: 12px 20px;
+}
+
+#feedback td button  {
+	width: 150px;
+	display: block;
+	margin:auto;
+	
+}
+
+#feedback {
+	width: 50%;
+	display: inline-block;
+	float:left;
+}
+
+#findUs {
+	border: 2px lightgrey groove;
+	border-radius: 8px;
+	text-align: center;
+	width:35%;
+	padding:15px;
+	margin:auto;
+	background-color: lightblue;
+	margin-left: 25px;
+	float:left;
+}
+
+#findUs table {
+	margin:auto;
+	font-size: 1.5vmax;
+}
+
+td.info {
+	width: 30%;
+}
+
+#map {
+	width: 100%;
+	height: 320px;
+}
+
+@media screen and (max-width:680px) {
+	#feedback, #findUs{
+		width: 90%;
+		margin: auto;
+		overflow: none;
+	}
+	#map {
+		width: 100%;
+	}
 }

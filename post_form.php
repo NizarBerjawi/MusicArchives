@@ -2,55 +2,52 @@
 // This page shows the form for posting messages
 // It's included by other pages, never called directly
 
-// Redirect if this page is caled directly
-if (!isset($words)) {
-	header ("Location: http://localhost/MusicArchives/forum.php");
-	exit();
-}
-
 // Only display this form if the user is logged in
 if(isset($_SESSION['email']) && isset($_SESSION['password'])) {
-	// Display the form
-	echo '<form action="post.php" method="post" accept-charset="utf-8">';
 
+	
 	// If on read.php
 	if (isset($tid) && $tid) {
-
-		// Print a caption
-		echo '<h3>Post a Reply</h3>';
-
+		// Display the form
+		echo '<form id="thread-reply" action="post.php" method="post">';
 		// Add the thread ID as a hidden input
 		echo '<input name="tid" type="hidden" value="' . $tid . '" />';
+		
+		// Create the body textarea
+		echo '<div class="center-post"><textarea class="sign-in text-comment" id="reply" name="body" placeholder="Express yourself here...">';
+
+		if (isset($body)) {
+			echo $body;
+		}
+
+		echo '</textarea>';
+		echo '<div class="center-button"><input class="button-red" name="submit" type="submit" value="Submit" /></div></div></form>';
+
 	} else { // New thread
 
-		// Print a caption
-		echo '<h3>New Thread</h3>';
-
 		// Create subject input
-		echo '<p><em>Subject</em>: <input name="subject" type="text" size="60" maxlength="100" ';
+		echo '<tr><td>Subject</td><td><input class="sign-in" name="subject" type="text"';
 
 		if (isset($subject)) {
 			echo "value=\"$subject\" ";
 		}
 
-		echo '/></p>';
+		echo '/><td></tr>';
+		
+		// Create the body textarea
+		echo '<tr><td>Body:</td><td><textarea class="sign-in text-comment" name="body">';
+
+		if (isset($body)) {
+			echo $body;
+		}
+
+		echo '</textarea></td></tr>';
+			// Finish the form
+		echo '<tr><td colspan="2"><div class="center-button"><input class="button-red" name="submit" type="submit" value="Submit" /></div></td></tr></table></form></section>';
+		include ('templates/footer.html');
 	} // End of $tid IF
-
-	// Create the body textarea
-	echo '<p><em>Body</em>: <textarea name="body" rows="10" cols="60">';
-
-	if (isset($body)) {
-		echo $body;
-	}
-
-	echo '</textarea></p>';
-
-	// Finish the form
-	echo '<input name="submit" type="submit" value="Submit" />
-</form>';
-
 } else {
-	echo '<p>You must be logged in to post messages.</p>';
+	echo '<tr><td>You must be logged in to post messages.</td></tr></table></section>';
 }
 
 ?>

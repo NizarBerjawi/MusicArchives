@@ -2,11 +2,11 @@ var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@
 var password = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
 var loginHandler = function() {
-    var $form = $("#login-form");
-    var email = $form.find("input[name='email']").val();
-    var pass = $form.find("input[name='password']").val();
-    var url = $form.attr("action");
-    
+	var $form = $("#login-form");
+	var email = $form.find("input[name='email']").val();
+	var pass = $form.find("input[name='password']").val();
+	var url = $form.attr("action");
+	
     $("#login-error").empty();	// Clear any previous error messages
 
 	// Validate all the input in the form
@@ -14,8 +14,8 @@ var loginHandler = function() {
 	var passIsValid = loginValidation(pass, "Password is not valid!", password);
 
     // Check if all the input is valid
-	if(emailIsValid && passIsValid) {
-		
+    if(emailIsValid && passIsValid) {
+    	
 		// Post the data to the php file
 		var posting = $.post(url, {e: email, p: pass});
 

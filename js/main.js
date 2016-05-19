@@ -27,4 +27,17 @@ $(".close-modal").on("click", function() {
 	modal.fadeOut();
 });
 
+/* Display a modal window when 'Enter' is pressed on the Search input */
+var search_Modal = $(".search-result-modal");
+$("#search").on("keypress", function(event) {
+	if (event.keyCode === 13) {
+		search_Modal.fadeIn();
+	}
+});
+
+/* Hide the search results window when the close button is clicked */
+$(".close-modal").on("click", function() {
+	search_Modal.fadeOut();
+});
+
 $(document).ready(setActive);

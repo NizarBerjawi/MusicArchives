@@ -44,7 +44,7 @@ h1 {
 }
 
 /* Style the input field in the Sign-up form */
-.top-right #user, #email, .modal .sign-in, .registration-form .sign-in, #feedback .sign-in {
+.top-right #user, #email, .modal .sign-in, .registration-form .sign-in, #feedback .sign-in, #new-thread .sign-in {
 	border: none;
 	box-shadow: none;
 	margin-bottom: 4px;
@@ -149,7 +149,7 @@ ul.topnav li.button, .category-button .visualization-button {
 	cursor: pointer;
 }
 
-ul.topnav li.button a, .category-button .visualization-button  {
+ul.topnav li.button a, .category-button .visualization-button, .forum #new-thread-button a, .posts #back-button a, #new-thread #back-button2 a{
 	padding: 5px;
 	border-radius: 4px;
 	background-color: #F25F5C;
@@ -323,9 +323,8 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 400px;
-	height: 200px;
-	margin-left: -200px;
+	width: 20%;
+	margin-left: -15%;
 	margin-top: -150px;
 	padding: 50px;
 	border-radius: 5px;
@@ -340,6 +339,10 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	position: absolute;
 	top: 10px;
 	right: 20px
+}
+
+#login-form {
+	width: 100%;
 }
 
 /**** ADVANCED SEARCH IN EXPLORE PAGE ****/
@@ -384,7 +387,6 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 
 	/* Force table to not be like tables anymore */
 	.advanced-search .filters table, thead, tbody, th, td, tr { 
-		display: block;
 		margin: auto;
 	}
 	
@@ -476,6 +478,11 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	position: absolute;
 	display: inline;
 }
+
+.category-button a:hover {
+	text-decoration: underline;	
+}
+
 .category-button span { 
 	display:inline-block;
 	vertical-align:middle;
@@ -607,8 +614,7 @@ div.desc {
 	table-layout: fixed;
 }
 
-#comments table .text-comment {
-	resize: vertical; 
+#comments table .text-comment, .center-post .text-comment, #new-thread .text-comment {
 	resize: none;
 	width: 100%;
 	height: 250px;
@@ -663,4 +669,115 @@ td.info {
 	#map {
 		width: 100%;
 	}
+}
+
+/* Forum styles */
+.posts {
+	margin: 25px;	
+}
+
+.forum table, .posts table, #new-thread {
+	width:100%;
+	font-size: 3vmin;
+}
+
+.forum #header {
+	text-align: center;
+}
+
+.forum #new-thread-button a, .posts #back-button a, #new-thread #back-button2 a {
+	float: right;
+	text-decoration: none;
+	color: white;
+}
+
+.forum #new-thread-button a:hover, .posts #back-button a:hover {
+	text-decoration: underline;
+}
+
+.forum #headers {
+	font-style: italic;
+	font-size: 1.5vmax;
+	background-color: #50514F;
+	color: white;
+}
+
+.forum #threads td {
+	border: 1px solid lightslategray;
+}
+
+.forum #headers td:nth-child(1),.forum #headers td:nth-child(2) {
+	width:50%;
+	text-align: left;
+}
+
+.forum #headers td:nth-child(2) {
+	width:20%;
+}
+
+.forum #headers td:nth-child(3), 
+.forum #headers td:nth-child(4),
+.forum #headers td:nth-child(5),
+.forum #threads td:nth-child(3),
+.forum #threads td:nth-child(4),
+.forum #threads td:nth-child(5) {
+	width: 10%;	
+	text-align:center;
+}
+
+#threads:nth-child(odd)  {
+	background: #f2f2f2;
+}
+
+#message {
+	width:65%;
+	padding-bottom: 20px;
+}
+
+#username {
+	width: 35%;
+	font-size: 12px;
+	text-align: left;
+}
+
+#post-subject td{
+	border-bottom: 	1px solid lightslategray;
+}
+#post-subject h2 {
+	margin:0;
+}
+
+#thread-reply #reply { 
+	width:100%;
+	height:150px;
+	padding: 0;
+}
+
+.center-post .center-button, #new-thread .center-button {
+	width: 100px;
+	margin:auto;
+}
+
+.center-post {
+	width:70%;
+	margin:auto;
+}
+
+#new-thread {
+	width: 100%;
+}
+
+/* Search Results */
+.search-result-modal {
+	background-color: #dbd9d9;
+	display: none;
+	position: fixed;
+	top: 30%;
+	left: 32%;
+	margin-left: -15%;
+	margin-top: -150px;
+	padding: 50px;
+	border-radius: 5px;
+	z-index: 10;
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
 }

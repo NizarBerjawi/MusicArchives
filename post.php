@@ -9,17 +9,18 @@ include ('templates/header.html');
 <!-- Form content goes here -->
 
 <section>
-	<table width="90%" border="0" cellspacing="10" cellpadding="0" align="center">
+	<form action="post.php" method="post">
+		<table id="new-thread">
+			<tr>
+				<td id="header" colspan="2"><h1>New Thread</h1></td>
+			</tr>
+			<tr>
+				<td id="back-button2" colspan="2">
+					<a href="forum.php">Back to Forum</a><br />
+				</td>
+			</tr>
 
-		<tr>
-			<td colspan="2" bgcolor="#003366" align="center"><p class="title">Title</p></td>
-		</tr>
-		<tr>
-			<td valign="top" nowrap="nowrap" width="10%">
-				<a href="index.php" class="navlink">Home</a><br />
-				<a href="forum.php" class="navlink">Forum</a><br />
-
-				<?php
+			<?php
 					// This page handles the message post.
 					// It also displays the form if creating a new thread.
 
@@ -53,10 +54,12 @@ include ('templates/header.html');
 							// Add the message to the database...
 
 							if (!$tid) { // Crete a new thread.
-								$q = "INSERT INTO threads (user_id, subjects) VALUES ({$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $subject) . "')";
-
 								require('mysqli_connect.php');
+
+								$q = "INSERT INTO threads (user_id, subject) VALUES ({$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $subject) . "')";
+
 								$r = mysqli_query($dbc, $q);
+
 								if (mysqli_affected_rows($dbc) == 1) {
 									$tid = mysqli_insert_id($dbc);
 								} else {
@@ -65,11 +68,35 @@ include ('templates/header.html');
 							} // No $tid.
 
 							if ($tid) { // Add this to the replies table
-								$q = "INSERT INTO posts (thread_id, user_id, message, posted_on) VALUES ($tid, {$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $body) . "', UTC_TIMESTAMP())";
 								require('mysqli_connect.php');
+								$q = "INSERT INTO posts (thread_id, user_id, message, posted_on) VALUES ($tid, {$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $body) . "', UTC_TIMESTAMP())";
+								
+								$r = mysqli_query($dbc, $q);
+								if (mysqli_affected_rows($dbc) == 1) {
 
-							}
+									// Site URL (base for all redirections)
+									// For use on the Zone
+									// define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net');
+
+        							// For use on Azure only
+									define ('BASE_URL', 'http://music-archives.azurewebsites.net');
+
+        							// For local Testing purposes:
+									//define ('BASE_URL', 'http://localhost/MusicArchives');
+									
+									header('Location: ' . BASE_URL . '/forum.php');
+									die();
+									
+								} else {
+									echo '<p>Your post could not be handled due to a system error.</p>';
+									include ('templates/footer.html');
+									
+								}
+							} // Valid $tid
+						} else {
+							include ('post_form.php');
 						}
-
+					} else { // Display the form
+						include ('post_form.php');
 					}
 					?>

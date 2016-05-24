@@ -8,10 +8,10 @@ $(".icon").on("click", function() {
 // This function compare the href of each a tag inside the navigation bar with the page's URL.
 // If the href is in the URL then it sets the class of that link to "active".
 function setActive() {
-	menuItem = $(".topnav a");	// Select all anchor tags from the navigation menu
-	for(i = 1; i < menuItem.length - 2 ; i++) { 
-		if(document.location.href.indexOf(menuItem[i].href)>=0) {
-			menuItem[i].className="active";
+	menuItem = $(".topnav a"); // Select all anchor tags from the navigation menu
+	for (i = 1; i < menuItem.length - 2; i++) {
+		if (document.location.href.indexOf(menuItem[i].href) >= 0) {
+			menuItem[i].className = "active";
 		}
 	}
 }
@@ -25,19 +25,6 @@ $(".show-modal").on("click", function() {
 /* Hide the modal window when the sign-in close button is clicked */
 $(".close-modal").on("click", function() {
 	modal.fadeOut();
-});
-
-/* Display a modal window when 'Enter' is pressed on the Search input */
-var search_Modal = $(".search-result-modal");
-$("#search").on("keypress", function(event) {
-	if (event.keyCode === 13) {
-		search_Modal.fadeIn();
-	}
-});
-
-/* Hide the search results window when the close button is clicked */
-$(".close-modal").on("click", function() {
-	search_Modal.fadeOut();
 });
 
 $(document).ready(setActive);

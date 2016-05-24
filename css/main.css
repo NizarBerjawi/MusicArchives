@@ -44,7 +44,8 @@ h1 {
 }
 
 /* Style the input field in the Sign-up form */
-.top-right #user, #email, .modal .sign-in, .registration-form .sign-in, #feedback .sign-in, #new-thread .sign-in {
+.top-right #user, #email, .modal .sign-in, .registration-form .sign-in,
+	#feedback .sign-in, #new-thread .sign-in, #tab-1 .sign-in, #tab-2 .sign-in {
 	border: none;
 	box-shadow: none;
 	margin-bottom: 4px;
@@ -100,7 +101,7 @@ ul.topnav {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #50514F;
+	background-color: #333;
 	width:100%;
 }
 
@@ -264,7 +265,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	text-align: center;
 	line-height: 13vw;
 	transition: width 0.7s ease-in-out;
-	background:#247BA0;
+	background:#333;
 }
 
 #menu a:hover {
@@ -501,17 +502,18 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	margin:auto;
 }
 
-#center-form table{
+#center-form table, #artist-info, #record-info {
 	margin:auto;
 	font-size: 4vmin;
 	width: 75%;
 }
 
-#center-form table tr:last-child{
+#center-form table tr:last-child, #tab-1 table tr:last-child, #tab-2 table tr:last-child {
 	text-align: center;
 }
 
-#center-form table button[name="btn-signup"] {
+#center-form table button[name="btn-signup"], #tab-1 table button[name="submit-artist"], 
+#tab-2 table button[name="submit-record"] {
 	width: 50%;
 	font-size:4vmin;
 }
@@ -520,7 +522,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	padding: 10px;
 }
 
-.registration-form .error-message {
+.registration-form .error-message, #artist-form .artist-error, #record-form .record-error {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #FFBABA;
@@ -530,7 +532,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	margin:auto;
 }
 
-.registration-form .success-message {
+.registration-form .success-message, #artist-form .artist-success, #record-form .record-success {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #DFF2BF;
@@ -767,17 +769,156 @@ td.info {
 	width: 100%;
 }
 
-/* Search Results */
-.search-result-modal {
-	background-color: #dbd9d9;
+/* SUPER SIMPLE MODAL POPUPS with JQUERY AND CSS3 TRANSITIONS by Stephen Scaff */
+.modal-box {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 98%;
+  background: white;
+  border-bottom: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+}
+
+.modal-box header,
+.modal-box .modal-header {
+  padding: 1.25em 1.5em;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-box header h3,
+.modal-box header h4,
+.modal-box .modal-header h3,
+.modal-box .modal-header h4 { margin: 0; }
+
+.modal-box .modal-body { padding: 2em 1.5em; }
+
+.modal-box footer,
+.modal-box .modal-footer {
+  padding: 1em;
+  border-top: 1px solid #ddd;
+  background: rgba(0, 0, 0, 0.02);
+  text-align: right;
+}
+
+.modal-overlay {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+a.close {
+  line-height: 1;
+  font-size: 1.5em;
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  text-decoration: none;
+  color: #bbb;
+}
+
+a.close:hover {
+  color: #222;
+  -webkit-transition: color 1s ease;
+  -moz-transition: color 1s ease;
+  transition: color 1s ease;
+}
+
+.modal-box table {
+	text-align: center;
+}
+
+@media (min-width: 32em) {
+  .modal-box { width: 70%; }
+}
+
+
+/********Admin Page**********/
+
+/* Styling for the tabs */
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: none;
+	color: #50514F;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-size: 2vmax;
+}
+
+ul.tabs li.current{
+	background: lightblue;
+	color: #50514F;
+	border-top-right-radius:7px;
+	border-top-left-radius:7px;
+}
+
+.tab-content{
 	display: none;
-	position: fixed;
-	top: 30%;
-	left: 32%;
-	margin-left: -15%;
-	margin-top: -150px;
-	padding: 50px;
-	border-radius: 5px;
-	z-index: 10;
-	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
+	background: lightblue;
+	padding: 15px;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+
+/* Styling for Admin input area*/
+.fieldset {
+    border-style: dotted;
+    margin-top: 20px;
+    margin-bottom:20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*.button-new{
+	background:#4CAF50;
+	border-radius:5px;
+}
+
+.button-delete{
+	background:#F25F5C;
+	border-radius:5px;
+}*/
+
+
+
+
+/* Styles for the Area chart */
+svg {
+  font: 10px sans-serif;
+  width:100%;
+}
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
 }

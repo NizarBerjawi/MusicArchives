@@ -73,17 +73,7 @@ include ('templates/header.html');
 								
 								$r = mysqli_query($dbc, $q);
 								if (mysqli_affected_rows($dbc) == 1) {
-
-									// Site URL (base for all redirections)
-									// For use on the Zone
-									// define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net');
-
-        							// For use on Azure only
-									define ('BASE_URL', 'http://music-archives.azurewebsites.net');
-
-        							// For local Testing purposes:
-									//define ('BASE_URL', 'http://localhost/MusicArchives');
-									
+									define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 									header('Location: ' . BASE_URL . '/forum.php');
 									die();
 									

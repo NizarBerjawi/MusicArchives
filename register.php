@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	if ($fn && $ln && $e && $u && $p) {	// If everything is OK
 		$error = false;
-		// Prepare the query and check if there email is not taken
+		// Prepare the query and check if the email is not taken
 		$q = "SELECT user_id FROM registered_users WHERE user_email='$e'";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
@@ -83,30 +83,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$r = mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if(mysqli_affected_rows($dbc) == 1) { // If it ran OK.
-
-
-				/* This section corresponds to sending an activation email. UQ zones don't allow sending emails */
-
-
 				// Site URL (base for all redirections)
-		      	//define ('BASE_URL', 'http://infs3202-sdz9e.uqcloud.net/');
-				
-				// For use on Azure only
-/*				define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
-*/
-				// For local testing purposes only:
-				//define ('BASE_URL', 'http://localhost/MusicArchives/');
+				define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 
 				// Send an email.
-/*				$body = "Thank you for registering at Music Archives. To activate your account, please click on this link:\n\n";
+				$body = "Thank you for registering at Music Archives. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
-				mail($trimmed['e'], 'Registration Confirmation', $body, 'From: admin@music-archives.com');*/
-
-
-
+				mail($trimmed['e'], 'Registration Confirmation', $body, 'From: admin@music-archives.com');
 
 				// Success message
-				$successMessages["success"] = "<p>Thank you for registering with Music Archives! A confirmation email has beed sent to your email address. Please click on the link in the email to activate your account.<p>";
+				$successMessages["success"] = "<p>Thank you for registering with Music Archives! A confirmation email has beed sent to your email address. Please click on the link in the email to activate your account.</p>";
 			} else { // If it did not run OK
 				$errorMessages["fail"] = "<li>You could not be registered due to a system error. We apologize for any inconvenience.</li>";
 			}

@@ -7,91 +7,110 @@ include ('templates/header.html');
 ?>
 <!-- Search bar -->
 <section class="advanced-search">
-	<h1>Select search criteria below:</h1>	
+	<h1>Explore</h1>	
 	<div class="filters">
 		<form>
 			<table>
 				<tr>
-					<td>
-						<p>
-							<strong>Filter: By Genre</strong><br>
-							<select name="ssubgenres" size="22" multiple="">
-								<option>-- ALL --</option>
-								<option>Canterbury Scene</option>
-								<option>Crossover Prog</option>
-								<option>Eclectic Prog</option>
-								<option>Experimental/Post Metal</option>
-								<option>Heavy Prog</option>
-								<option>Indo-Prog/Raga Rock</option>
-								<option>Jazz Rock/Fusion</option>
-								<option>Krautrock</option>
-								<option>Neo-Prog</option>
-								<option>Post Rock/Math rock</option>
-								<option>Prog Folk</option>
-								<option>Progressive Electronic</option>
-								<option>Progressive Metal</option>
-								<option>Psychedelic/Space Rock</option>
-								<option>RIO/Avant-Prog</option>
-								<option>Rock Progressivo Italiano</option>
-								<option>Symphonic Prog</option>
-								<option>Tech/Extreme Prog Metal</option>
-								<option>Various Genres</option>
-								<option>Zeuhl</option>
-							</select><br>(multiple selection, use <em>CTRL</em> key)
-						</p>
-					</td>
-					<td>
-						<p>
-							<strong>Filter: Specify the list recording type</strong><br>
-
-							<select name="salbumtypes" multiple=""> 
-								<option>Studio</option>
-								<option>DVD/Video</option>
-								<option>Boxset/Compilation</option>
-								<option>Live</option>
-								<option>Singles/EPs/Fan Club/Promo</option>
-							</select><br>(multiple selection, use <em>CTRL</em> key)
-						</p>
-
-						<p>
-							<strong>Filter: Year of release</strong><br>
-							<select name="syears" size="10" multiple="">    
-								<option>-- ALL --</option>
-								<option>2016</option>
-								<option>2015</option>
-								<option>2014</option>
-								<option>2013</option>
-								<option>2012</option>
-								<option>2011</option>
-								<option>2010</option>
-								<option>2009</option>
-							</select><br>(multiple selection, use CTRL key)
-						</p>
-					</td>
-
-					<td>  
-						<p>
-							<strong>Filter: Country</strong><br>
-							<select name="scountries" size="10" multiple="">
-								<option>-- ALL --</option>
-								<option>Andorra</option>
-								<option>Argentina</option>
-								<option>Armenia</option>
-								<option>Australia</option>
-								<option>Austria</option>
-								<option>Bahrain</option>
-								<option>Bangladesh</option>
-								<option>Belarus</option>
-								<option>Belgium</option>
-								<option>Bolivia</option>
-							</select><br>(multiple selection, use <em>CTRL</em> key)
-						</p>
+					<td colspan="4">
+						<h2>Select filters below:</h2>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3">
+					<td>
+						<strong>Filter: By Genre</strong>
+					</td>
+					<td>
+						<strong>Filter: Year of release</strong>
+					</td>
+					<td>
+						<strong>Filter: Country</strong>
+					</td>
+					<td>
+						<strong>Filter: Labels</strong>
+					</td>
+				</tr>
+				<tr>	
+					<td>
+						<select id="genres" size="7" multiple>
+							<?php
+								require('mysqli_connect.php');
+								$q = 'SELECT genre FROM genres ORDER BY genre ASC'; 
+								
+								$r = mysqli_query($dbc, $q);	// Execute the Query
+								$numRows = mysqli_num_rows($r);		// The number of rows retrieved by the query
+							
+								if ($numRows > 0) {
+									while ($row = mysqli_fetch_assoc($r)) {
+							?>
+							<option value="<?php echo $row['genre'] ?>"><?php echo $row['genre']; ?></option>
+							<?php			
+									}
+								}
+							?>
+						</select><br>(multiple selection, use <em>CTRL</em> key)
+					</td>
+					<td>
+						<select id="years" size="7" multiple>    
+							<?php
+								$q = "SELECT DISTINCT date_format(release_date, '%Y') as release_date FROM records ORDER BY release_date ASC;"; 
+								
+								$r = mysqli_query($dbc, $q);	// Execute the Query
+								$numRows = mysqli_num_rows($r);		// The number of rows retrieved by the query
+							
+								if ($numRows > 0) {
+									while ($row = mysqli_fetch_assoc($r)) {
+							?>
+							<option value="<?php echo $row['release_date'] ?>"><?php echo $row['release_date']; ?></option>
+							<?php			
+									}
+								}
+							?>
+						</select><br>(multiple selection, use CTRL key)
+					</td>
+					<td>  
+						<select id="countries" size="7" multiple>
+							<?php
+								$q = "SELECT DISTINCT country FROM artists ORDER BY country ASC;"; 
+								
+								$r = mysqli_query($dbc, $q);	// Execute the Query
+								$numRows = mysqli_num_rows($r);		// The number of rows retrieved by the query
+							
+								if ($numRows > 0) {
+									while ($row = mysqli_fetch_assoc($r)) {
+							?>
+							<option value="<?php echo $row['country']; ?>"><?php echo $row['country']; ?></option>
+							<?php			
+									}
+								}
+							?>
+						</select><br>(multiple selection, use <em>CTRL</em> key)
+					</td>
+					
+					<td>  
+						<select id="labels" size="7" multiple>
+							<?php
+								$q = "SELECT DISTINCT label_name FROM labels ORDER BY label_name ASC;"; 
+								
+								$r = mysqli_query($dbc, $q);	// Execute the Query
+								$numRows = mysqli_num_rows($r);		// The number of rows retrieved by the query
+							
+								if ($numRows > 0) {
+									while ($row = mysqli_fetch_assoc($r)) {
+							?>
+							<option value="<?php echo $row['label_name']; ?>"><?php echo $row['label_name']; ?></option>
+							<?php			
+									}
+								}
+							?>
+						</select><br>(multiple selection, use <em>CTRL</em> key)
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan="4">
 						<div class="center-button">
-							<input class="button-red" type="submit" value="Submit">
+							<input id="submit-filter" class="button-red" type="submit" value="Submit" data-modal-id="popup">
 						</div>
 					</td>
 				</tr>
@@ -100,6 +119,25 @@ include ('templates/header.html');
 	</form>
 </section>
 <!-- /Search Bar -->
+
+
+<!-- The modal that will display the advanced search results -->
+<div id="popup" class="modal-box">  
+  	<header>
+    	<a href="#" class="js-modal-close close">×</a>
+    	<h3>Search Results</h3>
+  	</header>
+  	<div class="modal-body">
+    	<div class="dataTable_wrapper">
+			<table class="table table-striped table-bordered table-hover" id="explore-table" style="width: 100%;">
+		</table>
+	</div>
+  	</div>
+  	<footer>
+    	<a href="#" class="js-modal-close">Close</a>
+  	</footer>
+</div>
+<!-- End of the modal section -->
 
 <?php
 include ('templates/footer.html');

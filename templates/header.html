@@ -34,62 +34,59 @@ session_start();
 				<li><a href="about-us.php">About Us</a></li>
 				<li><a href="contact-us.php">Contact Us</a></li>
 				<?php
-					if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['user_level'] == 1)) {
+				if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['user_level'] == 1)) {
 				?>
-					<li><a href="admin-console.php">Admin Console</a></li>
+				<li><a href="admin-console.php">Admin Console</a></li>
 				<?php
-				}
-				?>
+			}
+			?>
 
-				<?php
-				if(isset($_SESSION['email']) && isset($_SESSION['password'])) {
-				?>
-				<li class="button"><a id="logout-button" onclick="window.location.href='logout.php'">Logout</a></li>
-				<?php
-				} else {
-				?>
-				<li class="button"><a class="show-modal open-modal">Sign in</a></li>
-				<li id="register"><a href="registration-form.php">Register</a></li>
-				<?php
-				}
-				?>
-				<li class="icon">
-					<a href="#">&#9776;</a>
-				</li>
-			</ul>
-		</nav>
-		<!-- /Navigation Menu -->
-		
-		<!-- Sign-in Modal -->
-		<div class="modal">
-			<a class="close-modal" href="#">X</a>
-			<h2>Enter Email and password to login</h2>
-			<div id="login-error"></div>
-			
-			<form id="login-form" action="login.php" method="post">
-				<input class="sign-in" type="text" name="email" placeholder="Email e.g., spaceman.spiff@gross.club">
-				<input class="sign-in" type="password" name="password" placeholder="Password e.g., ********">
-				<button class="button-red" type="submit" name="btn-login">Login</button>
-			</form> 
-		</div>
-		<!-- /Sign-in Modal -->
+			<?php
+			if(isset($_SESSION['email']) && isset($_SESSION['password'])) {
+			?>
+			<li class="button"><a id="logout-button" onclick="window.location.href='logout.php'">Logout</a></li>
+			<?php
+		} else {
+		?>
+		<li class="button"><a class="show-modal open-modal">Sign in</a></li>
+		<li id="register"><a href="registration-form.php">Register</a></li>
+		<?php
+	}
+	?>
+	<li class="icon">
+		<a href="#">&#9776;</a>
+	</li>
+</ul>
+</nav>
+<!-- /Navigation Menu -->
 
-		<!-- Banner and Sign Up Form -->
-		<div class="banner">
-			<div class="banner-image"></div>
-			<form class="top-right">
-				<fieldset>
-					<legend>Don't have an account?</legend>
-					<input type="text" id="user" name="username" placeholder="Choose a username">
-					<input type="text" id="email" name="email" placeholder="Enter your email address">
-					<input class="button-red" type="submit" value="Submit">
-				</fieldset>
-			</form>
-		</div>
-		<!-- /Banner and Sign Up Form -->
-	</header>
+<!-- Sign-in Modal -->
+<div class="modal">
+	<a class="close-modal" href="#">X</a>
+	<h2>Enter Email and password to login</h2>
+	<div id="login-error"></div>
+	
+	<form id="login-form" action="login.php" method="post">
+		<input class="sign-in" type="text" name="email" placeholder="Email e.g., spaceman.spiff@gross.club">
+		<input class="sign-in" type="password" name="password" placeholder="Password e.g., ********">
+		<button class="button-red" type="submit" name="btn-login">Login</button>
+	</form> 
+</div>
+<!-- /Sign-in Modal -->
 
-	<main>
-		<div class="container">
+<!-- Banner and Sign Up Form -->
+<div class="banner">
+	<div class="banner-image"></div>
+	<form class="top-right">
+		<h2><em>Discover</em> new music</h2>
+		<h2><em>Contribute</em> to the database</h2>
+
+	</form>
+</div>
+<!-- /Banner and Sign Up Form -->
+</header>
+
+<main>
+	<div class="container">
 
             <!-- Page Specific Content -->

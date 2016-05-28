@@ -98,6 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo json_encode($successMessages);
 	}
 	mysqli_close($dbc);
-} // End of the main Submit conditional.
+} else { // Redirect
+    	// Site URL (base for all redirections)
+	define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+	
+        $url = BASE_URL . 'index.php'; // Define the URL.
+        ob_end_clean(); // Delete the buffer
+        header("Location: $url");
+        exit(); // Quit the script
+    }
 
-?>
+    ?>

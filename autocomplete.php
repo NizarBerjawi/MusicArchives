@@ -14,20 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // A utility function that executes the queries, gets the results and stores the result as
     // key => value pairs. Each value is an array of results.
     function executeQuery($databaseConnection, $query, $field, &$array) {
-	    $query = mysqli_query($databaseConnection, $query); // Execute the query
-	    
-	    $numrows = mysqli_num_rows($query);     // The number of rows retrieved by the query  
-	    
+        $query = mysqli_query($databaseConnection, $query); // Execute the query
+        
+        $numrows = mysqli_num_rows($query);     // The number of rows retrieved by the query  
+        
         // Fetch the data from the database
         if ($numrows > 0) {
-        	while ($row = mysqli_fetch_assoc($query)) {
+            while ($row = mysqli_fetch_assoc($query)) {
                 if($array[$field]) {
                     array_push($array[$field], $row[$field]);
-            	} else {
-            	    $array[$field] = array($row[$field]);
-            	}
+                } else {
+                    $array[$field] = array($row[$field]);
+                }
             }
-	    }
+        }
     }
     
     $outputArray = [];
@@ -42,6 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Close database connection
     mysqli_close($dbc);
-}
+} else { // Redirect
+        // Site URL (base for all redirections)
+    define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+    
+        $url = BASE_URL . 'index.php'; // Define the URL.
+        ob_end_clean(); // Delete the buffer
+        header("Location: $url");
+        exit(); // Quit the script
+    }
 
-?>
+    ?>

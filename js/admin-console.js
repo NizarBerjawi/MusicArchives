@@ -126,7 +126,6 @@ var recordHandler = function() {
 
 			// The response of the php file consists of validation results similar to those in this file
 			posting.done(function(data) {
-				console.log(data);
 				var messages = jQuery.parseJSON(data);
 				var $errorMessages = $(".record-error").hide(); // Hide the errors div so that fade in works
 				var $successMessages = $(".record-success").hide(); // Hide the success div so that fade in works
@@ -143,7 +142,8 @@ var recordHandler = function() {
 				})
 			})
 		}
-	} else {
+	}
+	else {
 		var $recordError = $("#record-form .record-error").hide();
 		var $error = $("<li>").text("Please select an artist.");
 		$recordError.append($error);
@@ -151,6 +151,72 @@ var recordHandler = function() {
 	}
 }
 
+var adminManagement = function() {
+	var $form = $("#admin-form");
+	var username = $form.find("select[name='admin-username']").val();
+
+	var url = $form.attr("action");
+
+	if (username !== "-- Select --") {
+		var posting = $.post(url, {
+			u: username
+		});
+	}
+
+	posting.done(function(data) {
+		var adminInfo = jQuery.parseJSON(data);
+		var fname = adminInfo.fn;
+		var lname = adminInfo.ln;
+		var email = adminInfo.e;
+		var regDate = adminInfo.rd.split(" ");
+		var userLevel = adminInfo.ul;
+
+		$("#admin-fname").val(fname);
+		$("#admin-lname").val(lname);
+		$("#admin-email").val(email);
+		$("#reg-date").val(regDate[0]);
+		if (userLevel === '1') {
+			$("#slideThree").prop('checked', true);
+		} else if (userLevel === '0'){
+			$("#slideThree").prop('checked', false);
+		}
+	})
+
+};
+
+var userLevel = function() {
+	var $form = $("#admin-form");
+	var isChecked = $("#slideThree").prop('checked');
+	var username = $form.find("select[name='admin-username']").val();
+	var url = "update-user-level.php";
+	$(".admin-error").empty(); // Clear any previous error messages
+	$(".admin-success").empty(); // Clear any previous success messages
+	
+	if (username !== "-- Select --") {
+		var posting = $.post(url, {
+			c: isChecked,
+			u: username
+		});
+
+		posting.done(function(data) {
+			console.log(data);
+			var messages = jQuery.parseJSON(data);
+			var $errorMessages = $(".admin-error").hide(); // Hide the errors div so that fade in works
+			var $successMessages = $(".admin-success").hide(); // Hide the success div so that fade in works
+			jQuery.each(messages, function(key, val) {
+				// Display any success or error messages
+				if (key === "success") {
+					$successMessages.append(val);
+					$successMessages.fadeIn();
+				}
+				else {
+					$errorMessages.append(val);
+					$errorMessages.fadeIn();
+				}
+			});
+		});
+	}
+}
 
 // ---------------------------- VALIDATION METHODS ---------------------------- //
 
@@ -177,7 +243,8 @@ var checkTextInput = function(input, message, id, regex) {
 		$errorLocation.append($error);
 		$errorLocation.fadeIn();
 		return false;
-	} else if (!input) {
+	}
+	else if (!input) {
 		var $errorLocation = $(id).hide();
 		var $error = $("<li>").text(message);
 		$errorLocation.append($error);
@@ -188,13 +255,14 @@ var checkTextInput = function(input, message, id, regex) {
 	}
 }
 
+// A function to validate date format
 var checkDate = function(input, message, id) {
 	// Validates that the release date input string is a valid date formatted as "dd/mm/yyyy"
 	var check = function(date) {
 		// First check for the pattern
 		if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(date))
 			return false;
-			
+
 		// Parse the date parts to integers
 		var parts = date.split("/");
 		var day = parseInt(parts[0], 10);
@@ -214,7 +282,7 @@ var checkDate = function(input, message, id) {
 		// Check the range of the day
 		return day > 0 && day <= monthLength[month - 1];
 	}
-	
+
 	if (!check(input)) {
 		var $errorLocation = $(id).hide();
 		var $error = $("<li>").text(message);
@@ -243,4 +311,16 @@ $("#record-form").submit(function(event) {
 	event.preventDefault();
 	// Call the form handler function
 	recordHandler();
+})
+
+$("#admin-info select[name='admin-username']").on("change", function() {
+	// Get the info of the selected user 
+	adminManagement();
+})
+
+$("#admin-form").submit(function(event) {
+	// Stop the form from submitting normally
+	event.preventDefault();
+	// Call the form handler function
+	userLevel();
 })

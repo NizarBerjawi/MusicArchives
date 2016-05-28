@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				mail($trimmed['e'], 'Registration Confirmation', $body, 'From: admin@music-archives.com');
 
 				// Success message
-				$successMessages["success"] = "<p>Thank you for registering with Music Archives! A confirmation email has beed sent to your email address. Please click on the link in the email to activate your account.</p>";
+				$successMessages["success"] = "<p>Thank you for registering with Music Archives! A confirmation email has been sent to your email address. Please click on the link in the email to activate your account.</p>";
 			} else { // If it did not run OK
 				$errorMessages["fail"] = "<li>You could not be registered due to a system error. We apologize for any inconvenience.</li>";
 			}
@@ -110,6 +110,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo json_encode($successMessages);
 	}
 	mysqli_close($dbc);
-} // End of the main Submit conditional.
+} else { // Redirect
+    	// Site URL (base for all redirections)
+	define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 
-?>
+        $url = BASE_URL . 'index.php'; // Define the URL.
+        ob_end_clean(); // Delete the buffer
+        header("Location: $url");
+        exit(); // Quit the script
+    }
+
+    ?>

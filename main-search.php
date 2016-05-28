@@ -78,5 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the search field
 	    //Close database connection
 	    mysqli_close($dbc);
 	}
-}
-?>
+} else { // Redirect
+    	// Site URL (base for all redirections)
+	define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+	
+        $url = BASE_URL . 'index.php'; // Define the URL.
+        ob_end_clean(); // Delete the buffer
+        header("Location: $url");
+        exit(); // Quit the script
+    }
+
+    ?>
+

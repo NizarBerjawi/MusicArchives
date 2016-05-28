@@ -37,15 +37,24 @@ h1 {
 /* Sign-up form */
 .top-right {
 	position: relative;
-	margin: 5% 2% 0 0;
+	margin: 4% 4% 0 0;
 	float:right;
 	font-size: 32px;
 	color: #f2f2f2;
 }
 
+
+body > header > div.banner > form > h2 > em {
+	color: #20b2aa;
+}
+
+body > header > div.banner > form > h2 {
+	font-size: 3vmax;
+}
+
 /* Style the input field in the Sign-up form */
 .top-right #user, #email, .modal .sign-in, .registration-form .sign-in,
-	#feedback .sign-in, #new-thread .sign-in, #tab-1 .sign-in, #tab-2 .sign-in {
+#feedback .sign-in, #new-thread .sign-in, #tab-1 .sign-in, #tab-2 .sign-in, #tab-3 .sign-in {
 	border: none;
 	box-shadow: none;
 	margin-bottom: 4px;
@@ -77,7 +86,7 @@ h1 {
 	padding: 2px 7px;
 	box-sizing: border-box;
 	border-color: #247BA0;
-	background-color: #F25F5C;
+	background-color: #20b2aa;
 	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
@@ -113,7 +122,7 @@ ul.topnav li {
 /* Style the links inside the list items */
 ul.topnav li a, .category-button .visualization-button {
 	display: inline-block;
-	color: #f2f2f2;
+	color: white;
 	text-align:center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -128,7 +137,7 @@ ul.topnav li a:hover {
 
 /* Give the currently active navigation link a green color*/
 a.active{
-	background-color: #F25F5C;
+	background-color: #20b2aa;
 }
 
 /* Style the "Music Archives" log */
@@ -153,7 +162,7 @@ ul.topnav li.button, .category-button .visualization-button {
 ul.topnav li.button a, .category-button .visualization-button, .forum #new-thread-button a, .posts #back-button a, #new-thread #back-button2 a{
 	padding: 5px;
 	border-radius: 4px;
-	background-color: #F25F5C;
+	background-color: #20b2aa;
 	border-color: #247BA0;
 	border: solid 1px;
 }
@@ -255,17 +264,17 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 #menu a {
 	display: block;
 	color: #f2f2f2;
-	width: 13vw;
-	height: 13vw;
+	width: 12vw;
+	height: 12vw;
 	border-radius: 50%;
 	border: 1px #a2a2a2 solid;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 3vw;
 	text-align: center;
-	line-height: 13vw;
+	line-height: 12vw;
 	transition: width 0.7s ease-in-out;
-	background:#333;
+	background:#20b2aa;
 }
 
 #menu a:hover {
@@ -502,18 +511,19 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	margin:auto;
 }
 
-#center-form table, #artist-info, #record-info {
+#center-form table, #artist-info, #record-info, #admin-info {
 	margin:auto;
 	font-size: 4vmin;
 	width: 75%;
 }
 
-#center-form table tr:last-child, #tab-1 table tr:last-child, #tab-2 table tr:last-child {
+#center-form table tr:last-child, #tab-1 table tr:last-child, 
+#tab-2 table tr:last-child, #tab-3 table tr:last-child {
 	text-align: center;
 }
 
 #center-form table button[name="btn-signup"], #tab-1 table button[name="submit-artist"], 
-#tab-2 table button[name="submit-record"] {
+#tab-2 table button[name="submit-record"], #tab-3 table button[name="submit-admin"] {
 	width: 50%;
 	font-size:4vmin;
 }
@@ -522,7 +532,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	padding: 10px;
 }
 
-.registration-form .error-message, #artist-form .artist-error, #record-form .record-error {
+.registration-form .error-message, #artist-form .artist-error, #record-form .record-error, #admin-form .admin-error {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #FFBABA;
@@ -532,7 +542,7 @@ div.container div#menu {margin-top: 40px; padding-top: 50px; border-top:2px groo
 	margin:auto;
 }
 
-.registration-form .success-message, #artist-form .artist-success, #record-form .record-success {
+.registration-form .success-message, #artist-form .artist-success, #record-form .record-success, #admin-form .admin-success {
 	font-size:3vmin;
 	width: 50%;
 	background-color: #DFF2BF;
@@ -640,7 +650,7 @@ div.desc {
 	border: 2px lightgrey groove;
 	border-radius: 8px;
 	text-align: center;
-	width:35%;
+	width:40%;
 	padding:15px;
 	margin:auto;
 	background-color: lightblue;
@@ -650,7 +660,7 @@ div.desc {
 
 #findUs table {
 	margin:auto;
-	font-size: 1.5vmax;
+	font-size: 1.3vmax;
 }
 
 td.info {
@@ -771,22 +781,22 @@ td.info {
 
 /* SUPER SIMPLE MODAL POPUPS with JQUERY AND CSS3 TRANSITIONS by Stephen Scaff */
 .modal-box {
-  display: none;
-  position: absolute;
-  z-index: 1000;
-  width: 98%;
-  background: white;
-  border-bottom: 1px solid #aaa;
-  border-radius: 4px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-clip: padding-box;
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	width: 98%;
+	background: white;
+	border-bottom: 1px solid #aaa;
+	border-radius: 4px;
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-clip: padding-box;
 }
 
 .modal-box header,
 .modal-box .modal-header {
-  padding: 1.25em 1.5em;
-  border-bottom: 1px solid #ddd;
+	padding: 1.25em 1.5em;
+	border-bottom: 1px solid #ddd;
 }
 
 .modal-box header h3,
@@ -798,39 +808,39 @@ td.info {
 
 .modal-box footer,
 .modal-box .modal-footer {
-  padding: 1em;
-  border-top: 1px solid #ddd;
-  background: rgba(0, 0, 0, 0.02);
-  text-align: right;
+	padding: 1em;
+	border-top: 1px solid #ddd;
+	background: rgba(0, 0, 0, 0.02);
+	text-align: right;
 }
 
 .modal-overlay {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 900;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5) !important;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 900;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5) !important;
 }
 
 a.close {
-  line-height: 1;
-  font-size: 1.5em;
-  position: absolute;
-  top: 5%;
-  right: 2%;
-  text-decoration: none;
-  color: #bbb;
+	line-height: 1;
+	font-size: 1.5em;
+	position: absolute;
+	top: 5%;
+	right: 2%;
+	text-decoration: none;
+	color: #bbb;
 }
 
 a.close:hover {
-  color: #222;
-  -webkit-transition: color 1s ease;
-  -moz-transition: color 1s ease;
-  transition: color 1s ease;
+	color: #222;
+	-webkit-transition: color 1s ease;
+	-moz-transition: color 1s ease;
+	transition: color 1s ease;
 }
 
 .modal-box table {
@@ -838,7 +848,7 @@ a.close:hover {
 }
 
 @media (min-width: 32em) {
-  .modal-box { width: 70%; }
+	.modal-box { width: 70%; }
 }
 
 
@@ -879,46 +889,116 @@ ul.tabs li.current{
 
 /* Styling for Admin input area*/
 .fieldset {
-    border-style: dotted;
-    margin-top: 20px;
-    margin-bottom:20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+	border-style: dotted;
+	margin-top: 20px;
+	margin-bottom:20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-
-/*.button-new{
-	background:#4CAF50;
-	border-radius:5px;
-}
-
-.button-delete{
-	background:#F25F5C;
-	border-radius:5px;
-}*/
-
-
 
 
 /* Styles for the Area chart */
 svg {
-  font: 10px sans-serif;
-  width:100%;
+	font: 10px sans-serif;
+	width:100%;
 }
 
 .area {
-  fill: steelblue;
-  clip-path: url(#clip);
+	fill: steelblue;
+	clip-path: url(#clip);
 }
 
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
 }
 
 .brush .extent {
-  stroke: #fff;
-  fill-opacity: .125;
-  shape-rendering: crispEdges;
+	stroke: #fff;
+	fill-opacity: .125;
+	shape-rendering: crispEdges;
+}
+
+
+
+/* CSS3 Checkbox Styles by Kushagra Agarwal  http://cssdeck.com/labs/css-checkbox-styles */
+/* SLIDE THREE */
+.slideThree {
+	width: 80px;
+	height: 26px;
+	background: #247BA0;
+	margin: 20px auto;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	position: relative;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.slideThree:after {
+	content: 'OFF';
+	font: 12px/26px Arial, sans-serif;
+	color: #000;
+	position: absolute;
+	right: 10px;
+	z-index: 0;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.slideThree:before {
+	content: 'ON';
+	font: 12px/26px Arial, sans-serif;
+	color: #00bf00;
+	position: absolute;
+	left: 10px;
+	z-index: 0;
+	font-weight: bold;
+}
+
+.slideThree label {
+	display: block;
+	width: 34px;
+	height: 20px;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.slideThree input[type=checkbox]:checked + label {
+	left: 43px;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
 }

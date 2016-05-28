@@ -11,12 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the search field
 		buildQuery($filters, $q);
 	} else {
 		// Initial query and attributes
-	    $q = "SELECT * FROM record_releases;";
+		$q = "SELECT * FROM record_releases;";
 	}
 	
 	// require the database connection
 	require("mysqli_connect.php");
-    
+	
     $query = mysqli_query($dbc, $q); // Execute the Query
     $numrows = mysqli_num_rows($query);     // The number of rows retrieved by the query 
     
@@ -37,37 +37,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the search field
     }
     
     $outputString = json_encode($outputArray);
-	echo $outputString;
-	
+    echo $outputString;
+    
     //Close database connection
     mysqli_close($dbc);
-}
+} else { // Redirect
+    	// Site URL (base for all redirections)
+	define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+	
+        $url = BASE_URL . 'index.php'; // Define the URL.
+        ob_end_clean(); // Delete the buffer
+        header("Location: $url");
+        exit(); // Quit the script
+    }
 
 // A utility method to build the required query based on the selected filter criteria
-function buildQuery($filters, &$query) {
-	$j = 0; 
-	foreach ($filters as $key => $array) {
-		$j++;
-		if (strcmp($key,"date") == 0) {
-			$query .= "date_format(" . $key . ",'%Y') in (";
-		} else {
-			$query .= $key . " in (";
-		}
-		$i = 0;
-		foreach($array as $filter) {
-			$i++;
-			if ($i == 1) {
-				$query .= "'" . $filter . "'";
-			} else {
-				$query .= ', ' . "'" . $filter . "'";
-			}
-		}
-		if ($j == count($filters)) {
-			$query .= ")";
-		} else {
-			$query .= ") AND ";
-		}
-	}
-}
+    function buildQuery($filters, &$query) {
+    	$j = 0; 
+    	foreach ($filters as $key => $array) {
+    		$j++;
+    		if (strcmp($key,"date") == 0) {
+    			$query .= "date_format(" . $key . ",'%Y') in (";
+    		} else {
+    			$query .= $key . " in (";
+    		}
+    		$i = 0;
+    		foreach($array as $filter) {
+    			$i++;
+    			if ($i == 1) {
+    				$query .= "'" . $filter . "'";
+    			} else {
+    				$query .= ', ' . "'" . $filter . "'";
+    			}
+    		}
+    		if ($j == count($filters)) {
+    			$query .= ")";
+    		} else {
+    			$query .= ") AND ";
+    		}
+    	}
+    }
 
-?>
+    ?>

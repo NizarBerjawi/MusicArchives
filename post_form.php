@@ -5,7 +5,7 @@
 // Only display this form if the user is logged in
 if(isset($_SESSION['email']) && isset($_SESSION['password'])) {
 
-		
+	
 	// If on read.php
 	if (isset($tid) && $tid) {
 		// Display the form

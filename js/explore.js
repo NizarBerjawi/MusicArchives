@@ -14,21 +14,21 @@ var explore = function() {
             return filters.val();
         }
     }
-   
+    
     var genres = checkInput($("#genres"));
     var years = checkInput($("#years"));
     var countries = checkInput($("#countries"));
     var labels = checkInput($("#labels"));
     
     
-	var url = "explore-search.php";  // The php file that will do the advanced search
+    var url = "explore-search.php";  // The php file that will do the advanced search
 
-	// Post the data to the php file
-	var posting = $.post(url, {g: genres, y: years, c: countries, l: labels});
+    // Post the data to the php file
+    var posting = $.post(url, {g: genres, y: years, c: countries, l: labels});
 
-	// The response of the php file consists of the advanced search results
-	posting.done(function(data) {
-	    if (data) {
+    // The response of the php file consists of the advanced search results
+    posting.done(function(data) {
+        if (data) {
             var searchResults = jQuery.parseJSON(data);
             showResult(searchResults);
         } else {
@@ -84,7 +84,7 @@ $("#submit-filter").on("click", function(e) {
     $("body").append(appendthis);
     $(".modal-overlay").fadeTo(500, 0.7);
     var modalBox = $(this).attr('data-modal-id');
-    $('#'+modalBox).fadeIn($(this).data());	
+    $('#'+modalBox).fadeIn($(this).data()); 
     explore();
 });
 

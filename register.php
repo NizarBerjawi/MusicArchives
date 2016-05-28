@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$q = "INSERT INTO registered_users (user_first_name, user_last_name, username, password, salt, user_email, active, registration_date) VALUES ('$fn', '$ln', '$u', '$hash', '$salt', '$e', '$a', NOW())";
 			$r = mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
-/*			if(mysqli_affected_rows($dbc) == 1) { // If it ran OK.
+			if(mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 				// Site URL (base for all redirections)
 				define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$successMessages["success"] = "<p>Thank you for registering with Music Archives! A confirmation email has been sent to your email address. Please click on the link in the email to activate your account.</p>";
 			} else { // If it did not run OK
 				$errorMessages["fail"] = "<li>You could not be registered due to a system error. We apologize for any inconvenience.</li>";
-			}*/
+			}
 		} else { // The email is not available
 			$error = true;
 			$errorMessages["emailTaken"] = "<li>That email address has already been registered.</li>";
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else { // Redirect
     	// Site URL (base for all redirections)
 	define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
-
+	
         $url = BASE_URL . 'index.php'; // Define the URL.
         ob_end_clean(); // Delete the buffer
         header("Location: $url");

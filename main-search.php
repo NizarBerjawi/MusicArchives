@@ -89,4 +89,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the search field
     }
 
     ?>
-

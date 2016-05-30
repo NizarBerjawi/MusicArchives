@@ -20,7 +20,7 @@ include ('templates/header.html');
 				</td>
 			</tr>
 
-			<?php
+				<?php
 					// This page handles the message post.
 					// It also displays the form if creating a new thread.
 
@@ -73,14 +73,14 @@ include ('templates/header.html');
 								
 								$r = mysqli_query($dbc, $q);
 								if (mysqli_affected_rows($dbc) == 1) {
-									define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+									define ('BASE_URL', 'https://music-archives-nizar12.c9users.io/');
 									header('Location: ' . BASE_URL . '/forum.php');
 									die();
 									
 								} else {
 									echo '<p>Your post could not be handled due to a system error.</p>';
 									include ('templates/footer.html');
-									
+ 
 								}
 							} // Valid $tid
 						} else {
@@ -90,5 +90,3 @@ include ('templates/header.html');
 						include ('post_form.php');
 					}
 					?>
-
-

@@ -18,23 +18,23 @@ include ('templates/header.html');
 				<a href="forum.php">Back to Forum</a>
 			</td>
 		</tr>
-		<?php
-		
+				<?php
+				
 				// Check for a thread ID...
-		$tid = FALSE;
-		if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('min_range' => 1)) ) {
+				$tid = FALSE;
+				if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('min_range' => 1)) ) {
 
 					// Create a shorthand version of the thread ID
-			$tid = $_GET['tid'];
+					$tid = $_GET['tid'];
 
 					// Run the query
-			$q = "SELECT t.subject, p.message, username, DATE_FORMAT(p.posted_on, '%e-%b-%y %l:%i %p') AS posted FROM threads AS t LEFT JOIN posts AS p USING (thread_id) INNER JOIN registered_users AS u ON p.user_id = u.user_id WHERE t.thread_id = $tid ORDER BY p.posted_on ASC";
+					$q = "SELECT t.subject, p.message, username, DATE_FORMAT(p.posted_on, '%e-%b-%y %l:%i %p') AS posted FROM threads AS t LEFT JOIN posts AS p USING (thread_id) INNER JOIN registered_users AS u ON p.user_id = u.user_id WHERE t.thread_id = $tid ORDER BY p.posted_on ASC";
 
-			require('mysqli_connect.php');
+					require('mysqli_connect.php');
 
-			$r = mysqli_query($dbc, $q);
-			
-			if (!(mysqli_num_rows($r) > 0)) {
+					$r = mysqli_query($dbc, $q);
+					
+					if (!(mysqli_num_rows($r) > 0)) {
 						$tid = FALSE; // Invalid thread ID
 					}
 				} // End of isset($_GET['tid']) IF.
@@ -67,12 +67,12 @@ include ('templates/header.html');
 				}
 
 				?>
-			</table>
-		</div>
+	</table>
+</div>
 
-		<!-- End of About Us content -->
+<!-- End of About Us content -->
 
 
-		<?php
-		include ('templates/footer.html');
-		?>
+<?php
+include ('templates/footer.html');
+?>

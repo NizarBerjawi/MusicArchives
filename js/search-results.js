@@ -1,13 +1,13 @@
 var displayResults = function() {
     var $input = $("#search").val();
-    var url = "main-search.php";  // The php file that will do the search
+	var url = "main-search.php";  // The php file that will do the search
 
-    // Post the data to the php file
-    var posting = $.post(url, {i: $input});
+	// Post the data to the php file
+	var posting = $.post(url, {i: $input});
 
-    // The response of the php file consists of the search results
-    posting.done(function(data) {
-        if (data) {
+	// The response of the php file consists of the search results
+	posting.done(function(data) {
+	    if (data) {
             var searchResults = jQuery.parseJSON(data);
             showTable(searchResults);
         } else {
@@ -61,7 +61,7 @@ $("#search").on("keypress", function(e) {
         $("body").append(appendthis);
         $(".modal-overlay").fadeTo(500, 0.7);
         var modalBox = $(this).attr('data-modal-id');
-        $('#'+modalBox).fadeIn($(this).data()); 
+        $('#'+modalBox).fadeIn($(this).data());	
         displayResults();
     }
 });

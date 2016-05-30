@@ -48,10 +48,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hash = $row['password'];
         $salt = $row['salt'];
         
-        // close statement
+	    // close statement
         $stmt->close();
         
-        // hash_equals is only compatible with (PHP 5 >= 5.6.0, PHP 7)
+	    // hash_equals is only compatible with (PHP 5 >= 5.6.0, PHP 7)
         // this function creates a new has_equals function if the default is not available
         if(!function_exists('hash_equals')) {
             function hash_equals($str1, $str2) {
@@ -99,9 +99,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     echo json_encode($errorMessages);
 } else { // Redirect
-        // Site URL (base for all redirections)
-    define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
-    
+    	// Site URL (base for all redirections)
+  define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
+  
         $url = BASE_URL . 'index.php'; // Define the URL.
         ob_end_clean(); // Delete the buffer
         header("Location: $url");

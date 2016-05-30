@@ -1,23 +1,23 @@
 $("#releases-per-year").on("click", function(e) {
-  var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
-  e.preventDefault();
-  $("body").append(appendthis);
-  $(".modal-overlay").fadeTo(500, 0.7);
-  var modalBox = $(this).attr('data-modal-id');
-  $('#'+modalBox).fadeIn($(this).data());
+    var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
+    e.preventDefault();
+    $("body").append(appendthis);
+    $(".modal-overlay").fadeTo(500, 0.7);
+    var modalBox = $(this).attr('data-modal-id');
+    $('#'+modalBox).fadeIn($(this).data());
 });
 
 $(".js-modal-close, .modal-overlay").click(function() {
-  $(".modal-box, .modal-overlay").fadeOut(500, function() {
-    $(".modal-overlay").remove();
-  });
+    $(".modal-box, .modal-overlay").fadeOut(500, function() {
+        $(".modal-overlay").remove();
+    });
 });
 
 $(window).resize(function() {
-  $(".modal-box").css({
-    top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
-    left: ($(window).width() - $(".modal-box").outerWidth()) / 2
-  });
+    $(".modal-box").css({
+        top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
+        left: ($(window).width() - $(".modal-box").outerWidth()) / 2
+    });
 });
 
 $(window).resize();
@@ -25,7 +25,7 @@ $(window).resize();
 
 var oReq = new XMLHttpRequest();  // New request object.
 oReq.onload = function() {
-  data = $.parseJSON(this.responseText);
+    data = $.parseJSON(this.responseText);
 
   // define the x scale (horizontal)
   var margin = {top: 10, right: 10, bottom: 100, left: 40},
@@ -79,7 +79,7 @@ oReq.onload = function() {
   .attr("class", "context")
   .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-  data.forEach(function(d) {
+data.forEach(function(d) {
     if (!d.date) {
       return;
     }

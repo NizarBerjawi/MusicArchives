@@ -1,8 +1,8 @@
 <?php
 
 	// Prepare the query to get the years and number of convicts */
-$query = "SELECT * FROM releases_per_year";
-
+	$query = "SELECT * FROM releases_per_year";
+	
 	require('mysqli_connect.php'); // Get the database connection
 	
 	$r = mysqli_query($dbc, $query);	// Execute the Query
@@ -22,4 +22,4 @@ $query = "SELECT * FROM releases_per_year";
 	//Close database connection
 	mysqli_close($dbc);
 
-	?>
+?>

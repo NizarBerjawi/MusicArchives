@@ -41,7 +41,6 @@ var formHandler = function() {
 
 		// The response of the php file consists of validation results similar to those in this file
 		posting.done(function(data) {
-			console.log(data);
 			var messages = jQuery.parseJSON(data);
 			var $errorMessages = $(".error-message").hide(); // Hide the errors div so that fade in works
 			var $successMessages = $(".success-message").hide(); // Hide the success div so that fade in works

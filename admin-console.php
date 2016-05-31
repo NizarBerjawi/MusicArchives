@@ -2,7 +2,7 @@
 session_start();
 
 if(($_SESSION['user_level'] != 1) && !(isset($_SESSION['email']) && isset($_SESSION['password']) && $_SESSION['user_level'] == 1)) {
-    define ('BASE_URL', 'https://music-archives-nizar12.c9users.io');
+    define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 	header('Location: ' . BASE_URL . '/index.php');
 	exit();
 }	

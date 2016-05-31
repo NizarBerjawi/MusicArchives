@@ -73,7 +73,7 @@ include ('templates/header.html');
 								
 								$r = mysqli_query($dbc, $q);
 								if (mysqli_affected_rows($dbc) == 1) {
-									define ('BASE_URL', 'https://music-archives-nizar12.c9users.io/');
+									define ('BASE_URL', 'http://music-archives.azurewebsites.net/');
 									header('Location: ' . BASE_URL . '/forum.php');
 									die();
 									
